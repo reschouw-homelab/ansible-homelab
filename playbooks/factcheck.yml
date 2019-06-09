@@ -1,0 +1,2 @@
+- hosts: all
+  gather_facts: True
