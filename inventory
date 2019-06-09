@@ -1,3 +1,13 @@
 [test]
 ans1.dorwinia.com
 ans2.dorwinia.com
+
+[nginx]
+roxybox.dorwinia.com
+
+[production]
+gitbox.dorwinia.com
+wikibox.dorwinia.com
+
+[games]
+craftbox.dorwinia.com

@@ -1,5 +1,7 @@
 - name: Update All
   hosts: all
+  become: yes
+  become_user: root
 
   tasks:
     - name: Update
