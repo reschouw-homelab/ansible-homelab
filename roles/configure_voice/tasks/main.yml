@@ -1,0 +1,49 @@
+# Role to install and configure asterisk
+---
+# Install asterisk
+  - name: Install Asterisk
+    apt:
+      name: asterisk
+      state: present
+      update_cache: yes
+    tags:
+        - voice
+
+# Copy configuration files
+  - name: Copy users.conf
+    copy:
+      src: users.conf
+      dest: /etc/asterisk/users.conf
+      owner: root
+      group: root
+      mode: 0755
+    tags:
+      - voice
+
+  - name: Copy extensions.conf
+    copy:
+      src: extensions.conf
+      dest: /etc/asterisk/extensions.conf
+      owner: root
+      group: root
+      mode: 0755
+    tags:
+      - voice
+
+  - name: Copy modules.conf
+    copy:
+      src: modules.conf
+      dest: /etc/asterisk/modules.conf
+      owner: root
+      group: root
+      mode: 0755
+    tags:
+      - voice
+
+# Restart asterisk
+  - name: Restart asterisk
+    service:
+      name: asterisk
+      state: restarted
+    tags:
+      - voice

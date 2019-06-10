@@ -1,0 +1,7 @@
+- name: Update Voice
+  hosts: voice
+  become: yes
+  become_user: root
+  roles:
+    - configure_voice
+    
