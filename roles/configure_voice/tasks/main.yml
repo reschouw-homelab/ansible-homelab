@@ -10,10 +10,10 @@
         - voice
 
 # Copy configuration files
-  - name: Copy users.conf
+  - name: Copy sip.conf
     copy:
-      src: users.conf
-      dest: /etc/asterisk/users.conf
+      src: sip.conf
+      dest: /etc/asterisk/sip.conf
       owner: root
       group: root
       mode: 0755
@@ -34,6 +34,16 @@
     copy:
       src: modules.conf
       dest: /etc/asterisk/modules.conf
+      owner: root
+      group: root
+      mode: 0755
+    tags:
+      - voice
+
+  - name: Copy pjsip.conf
+    copy:
+      src: pjsip.conf
+      dest: /etc/asterisk/pjsip.conf
       owner: root
       group: root
       mode: 0755
