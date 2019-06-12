@@ -3,5 +3,5 @@
   become: yes
   become_user: root
   roles:
-    - configure_voice
+    - voice_config
     
