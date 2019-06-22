@@ -1,0 +1,30 @@
+# Role to install and Bind 9
+---
+# Install Bind9
+  - name: Install Bind9
+    apt:
+      name: bind9
+      state: present
+      update_cache: yes
+    tags:
+      - dns
+
+# Install common config files
+  - name: Copy named.conf.options
+    copy:
+      src: named.conf.options
+      dest: /etc/bind/named.conf.options
+      owner: root
+      group: root
+      mode: 755
+    tags:
+      - dns
+
+# Restart Bind9
+  - name: Restart Bind9
+    service:
+      name: bind9
+      state: restarted
+    tags:
+      - dns
+
