@@ -1,5 +1,0 @@
-- hosts: all
-  gather_facts: False
-  tasks:
-  - name: 'Install python 2'
-    raw: test -e /usr/bin/python || (sudo apt -y update &&  sudo apt install -y python-simplejson)
