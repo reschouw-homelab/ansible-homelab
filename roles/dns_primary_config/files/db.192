@@ -1,0 +1,37 @@
+;
+; dorwinia.com reverse records: -------------------------------------------
+;
+$TTL    604800
+@       IN      SOA     dns-1.dorwinia.com. root.dorwinia.com. (
+                              2         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@		IN      NS      dns-1.
+11		IN      PTR     dns-1.dorwinia.com.
+@		IN      NS      dns-2.
+12		IN      PTR     dns-2.dorwinia.com.
+@		IN      NS      dns-3.
+13		IN      PTR     dns-3.dorwinia.com.
+
+; Device PTR Records: -----------------------------------------------------
+
+6		IN		PTR			medusa.dorwinia.com.
+50		IN		PTR			config.dorwinia.com.
+51		IN		PTR			ans1.dorwinia.com.
+52		IN		PTR			ans2.dorwinia.com.
+100		IN		PTR			uberverse.dorwinia.com.
+101		IN		PTR			miniverse.dorwinia.com.
+102		IN		PTR			tinyverse.dorwinia.com.
+103		IN		PTR			gameverse.dorwinia.com.
+104		IN		PTR			hyperverse.dorwinia.com.
+111		IN		PTR			singularity.dorwinia.com.
+144		IN		PTR			gitbox.dorwinia.com.
+140		IN		PTR			wikibox.dorwinia.com.
+132		IN		PTR			unifibox.dorwinia.com.
+145		IN		PTR			roxybox.dorwinia.com.
+143		IN		PTR			craftbox.dorwinia.com.
+97		IN		PTR			directorbox.dorwinia.com.
+30		IN		PTR			voice.dorwinia.com.

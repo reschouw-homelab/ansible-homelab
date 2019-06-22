@@ -1,0 +1,41 @@
+# Role to configure Bind9 to be Primary Master
+---
+# Copy configuration files
+  - name: Copy named.conf
+    copy:
+      src: named.conf
+      dest: /etc/bind/named.conf
+      owner: root
+      group: bind
+      mode: 0644
+    tags:
+      - dns
+
+  - name: Copy db.dorwinia.com
+    copy:
+      src: db.dorwinia.com
+      dest: /etc/bind/db.dorwinia.com
+      owner: root
+      group: bind
+      mode: 0644
+    tags:
+      - dns
+
+  - name: Copy db.192
+    copy:
+      src: db.192
+      dest: /etc/bind/db.192
+      owner: root
+      group: bind
+      mode: 0644
+    tags:
+      - dns
+
+# Restart Bind9
+  - name: Restart Bind9
+    service:
+      name: bind9
+      state: restarted
+    tags:
+      - dns
+

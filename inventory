@@ -2,6 +2,11 @@
 ans1.dorwinia.com
 ans2.dorwinia.com
 
+[dns]
+dns-1.dorwinia.com
+dns-2.dorwinia.com
+dns-3.dorwinia.com
+
 [nginx]
 roxybox.dorwinia.com
 
@@ -14,3 +19,5 @@ voice.dorwinia.com
 
 [games]
 craftbox.dorwinia.com
+
+

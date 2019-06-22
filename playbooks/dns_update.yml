@@ -1,0 +1,16 @@
+# Playbook to install and update DNS infrastructure
+- name: Configure dns-1 as primary
+  hosts: dns-1.dorwinia.com
+  become: yes
+  become_user: root
+  roles:
+    - install_bind9
+    - dns_primary_config
+
+- name: Configure dns-2 as secondary
+  hosts: dns-2.dorwinia.com
+  become: yes
+  become_user: root
+  roles:
+    - install_bind9
+    - dns_secondary_config
