@@ -15,8 +15,8 @@
       src: named.conf.options
       dest: /etc/bind/named.conf.options
       owner: root
-      group: root
-      mode: 755
+      group: bind
+      mode: 0644
     tags:
       - dns
 

@@ -5,7 +5,7 @@
   become_user: root
   roles:
     - install_bind9
-    #- dns_primary_config
+    - dns_primary_config
 
 - name: Configure dns-2 as secondary
   hosts: dns-2.dorwinia.com
