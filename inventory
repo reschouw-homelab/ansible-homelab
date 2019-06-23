@@ -2,6 +2,9 @@
 ans1.dorwinia.com
 ans2.dorwinia.com
 
+[mgmt]
+config.dorwinia.com
+
 [dns]
 dns-1.dorwinia.com
 dns-2.dorwinia.com
