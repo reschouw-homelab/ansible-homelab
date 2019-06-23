@@ -16,3 +16,10 @@
     - name: Autoremove
       apt:
         autoremove: yes
+
+- name: Update PiHole
+  hosts: dns-3.dorwinia.com
+  become: yes
+  become_user: root
+  roles:
+    - dns_pihole_update

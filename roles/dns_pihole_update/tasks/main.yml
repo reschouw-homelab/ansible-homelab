@@ -1,0 +1,11 @@
+# Role to update PiHole and blocklists
+---
+  - name: Update PiHole
+    command: pihole -up
+    tags:
+      - dns
+
+  - name: Update PiHole blocklists
+    command: pihole -g
+    tags:
+      - dns

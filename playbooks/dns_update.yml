@@ -14,3 +14,10 @@
   roles:
     - install_bind9
     - dns_secondary_config
+
+- name: Update and reload PiHole on dns-3
+  hosts: dns-3.dorwinia.com
+  become: yes
+  become_user: root
+  roles:
+    - dns_pihole_update
