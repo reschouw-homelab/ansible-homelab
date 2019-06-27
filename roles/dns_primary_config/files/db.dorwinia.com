@@ -21,8 +21,8 @@ dns-3		IN	A	192.168.1.13
 sexton.dorwinia.com.		IN		A		192.168.1.1
 medusa.dorwinia.com.		IN		A		192.168.1.6
 config.dorwinia.com.		IN		A		192.168.1.50
-ans1.dorwinia.com.		IN		A		192.168.1.100
-ans2.dorwinia.com.		IN		A		192.168.1.100
+ans1.dorwinia.com.		IN		A		192.168.1.51
+ans2.dorwinia.com.		IN		A		192.168.1.52
 uberverse.dorwinia.com.		IN		A		192.168.1.100
 miniverse.dorwinia.com.		IN		A		192.168.1.101
 tinyverse.dorwinia.com.		IN		A		192.168.1.102
