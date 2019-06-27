@@ -3,7 +3,7 @@
 ;
 $TTL    604800
 @       IN      SOA     dns-1.dorwinia.com. root.dorwinia.com. (
-                              2         ; Serial
+                              3         ; Serial
                          604800         ; Refresh
                           86400         ; Retry
                         2419200         ; Expire
@@ -29,10 +29,11 @@ tinyverse.dorwinia.com.		IN		A		192.168.1.102
 gameverse.dorwinia.com.		IN		A		192.168.1.103
 hyperverse.dorwinia.com.	IN		A		192.168.1.104
 singularity.dorwinia.com.	IN		A		192.168.1.111
+unifibox.dorwinia.com.		IN		A		192.168.1.132
 gitbox.dorwinia.com.		IN		A		192.168.1.144
 wikibox.dorwinia.com.		IN		A		192.168.1.140
-unifibox.dorwinia.com.		IN		A		192.168.1.132
-roxybox.dorwinia.com.		IN		A		192.168.1.145
 craftbox.dorwinia.com.		IN		A		192.168.1.143
+roxybox.dorwinia.com.		IN		A		192.168.1.145
+libre.dorwinia.com.		IN		A		192.168.1.146
 directorbox.dorwinia.com.	IN		A		192.168.1.97
 voice.dorwinia.com.		IN		A		192.168.1.30
