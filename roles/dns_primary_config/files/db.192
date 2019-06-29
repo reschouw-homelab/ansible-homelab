@@ -3,7 +3,7 @@
 ;
 $TTL    604800
 @       IN      SOA     dns-1.dorwinia.com. root.dorwinia.com. (
-                              3         ; Serial
+                              4444      ; Serial
                          604800         ; Refresh
                           86400         ; Retry
                         2419200         ; Expire
@@ -20,6 +20,8 @@ $TTL    604800
 
 1		IN		PTR			sexton.dorwinia.com.
 6		IN		PTR			medusa.dorwinia.com.
+8		IN		PTR			wap-1.dorwinia.com.
+9		IN		PTR			wap-2.dorwinia.com.
 50		IN		PTR			config.dorwinia.com.
 51		IN		PTR			ans1.dorwinia.com.
 52		IN		PTR			ans2.dorwinia.com.

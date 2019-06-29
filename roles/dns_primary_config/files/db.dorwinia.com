@@ -3,7 +3,7 @@
 ;
 $TTL    604800
 @       IN      SOA     dns-1.dorwinia.com. root.dorwinia.com. (
-                              4         ; Serial
+                              5         ; Serial
                          604800         ; Refresh
                           86400         ; Retry
                         2419200         ; Expire
@@ -20,6 +20,8 @@ dns-3		IN	A	192.168.1.13
 
 sexton.dorwinia.com.		IN		A		192.168.1.1
 medusa.dorwinia.com.		IN		A		192.168.1.6
+wap-1.dorwinia.com.		IN		A		192.168.1.8
+wap-2.dorwinia.com.		IN		A		192.168.1.9
 config.dorwinia.com.		IN		A		192.168.1.50
 ans1.dorwinia.com.		IN		A		192.168.1.51
 ans2.dorwinia.com.		IN		A		192.168.1.52
