@@ -1,0 +1,27 @@
+# Role to install and configure snmpd
+---
+  - name: Install snmpd
+    apt:
+      name: snmpd
+      state: present
+      update_cache: true
+      cache_valid_time: 3600
+    tags:
+      - common
+      
+  - name: Copy snmpd.conf
+    copy:
+      src: snmpd.conf
+      dest: /etc/snmp/snmpd.conf
+      owner: root
+      group: root
+      mode: 0600
+    tags:
+      - common
+      
+  - name: Restart snmp service
+    service:
+      name: snmpd
+      state: restarted
+    tags:
+      - common

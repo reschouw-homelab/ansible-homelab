@@ -1,0 +1,6 @@
+- name: Install and configure snmpd
+  hosts: all:!libre.dorwinia.com
+  become: yes
+  become_user: root
+  roles:
+    - snmp_install
