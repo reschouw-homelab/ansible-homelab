@@ -3,7 +3,7 @@
 ;
 $TTL    604800
 @       IN      SOA     dns-1.dorwinia.com. root.dorwinia.com. (
-                              4444      ; Serial
+                              6         ; Serial
                          604800         ; Refresh
                           86400         ; Retry
                         2419200         ; Expire
@@ -22,6 +22,11 @@ $TTL    604800
 6		IN		PTR			medusa.dorwinia.com.
 8		IN		PTR			wap-1.dorwinia.com.
 9		IN		PTR			wap-2.dorwinia.com.
+30		IN		PTR			voice.dorwinia.com.
+40		IN		PTR			idrac-uberverse.dorwinia.com.
+41		IN		PTR			idrac-miniverse.dorwinia.com.
+42		IN		PTR			idrac-tinyverse.dorwinia.com.
+44		IN		PTR			idrac-hyperverse.dorwinia.com.
 50		IN		PTR			config.dorwinia.com.
 51		IN		PTR			ans1.dorwinia.com.
 52		IN		PTR			ans2.dorwinia.com.
@@ -31,11 +36,9 @@ $TTL    604800
 103		IN		PTR			gameverse.dorwinia.com.
 104		IN		PTR			hyperverse.dorwinia.com.
 111		IN		PTR			singularity.dorwinia.com.
-144		IN		PTR			gitbox.dorwinia.com.
-140		IN		PTR			wikibox.dorwinia.com.
 132		IN		PTR			unifibox.dorwinia.com.
-145		IN		PTR			roxybox.dorwinia.com.
+140		IN		PTR			wikibox.dorwinia.com.
 143		IN		PTR			craftbox.dorwinia.com.
+144		IN		PTR			gitbox.dorwinia.com.
+145		IN		PTR			roxybox.dorwinia.com.
 146		IN		PTR			libre.dorwinia.com.
-97		IN		PTR			directorbox.dorwinia.com.
-30		IN		PTR			voice.dorwinia.com.

@@ -3,7 +3,7 @@
 ;
 $TTL    604800
 @       IN      SOA     dns-1.dorwinia.com. root.dorwinia.com. (
-                              5         ; Serial
+                              6         ; Serial
                          604800         ; Refresh
                           86400         ; Retry
                         2419200         ; Expire
@@ -18,24 +18,27 @@ dns-3		IN	A	192.168.1.13
 
 ; Device A Records: -------------------------------------------------------
 
-sexton.dorwinia.com.		IN		A		192.168.1.1
-medusa.dorwinia.com.		IN		A		192.168.1.6
-wap-1.dorwinia.com.		IN		A		192.168.1.8
-wap-2.dorwinia.com.		IN		A		192.168.1.9
-config.dorwinia.com.		IN		A		192.168.1.50
-ans1.dorwinia.com.		IN		A		192.168.1.51
-ans2.dorwinia.com.		IN		A		192.168.1.52
-uberverse.dorwinia.com.		IN		A		192.168.1.100
-miniverse.dorwinia.com.		IN		A		192.168.1.101
-tinyverse.dorwinia.com.		IN		A		192.168.1.102
-gameverse.dorwinia.com.		IN		A		192.168.1.103
-hyperverse.dorwinia.com.	IN		A		192.168.1.104
-singularity.dorwinia.com.	IN		A		192.168.1.111
-unifibox.dorwinia.com.		IN		A		192.168.1.132
-gitbox.dorwinia.com.		IN		A		192.168.1.144
-wikibox.dorwinia.com.		IN		A		192.168.1.140
-craftbox.dorwinia.com.		IN		A		192.168.1.143
-roxybox.dorwinia.com.		IN		A		192.168.1.145
-libre.dorwinia.com.		IN		A		192.168.1.146
-directorbox.dorwinia.com.	IN		A		192.168.1.97
-voice.dorwinia.com.		IN		A		192.168.1.30
+sexton.dorwinia.com.			IN	A	192.168.1.1
+medusa.dorwinia.com.			IN	A	192.168.1.6
+wap-1.dorwinia.com.			IN	A	192.168.1.8
+wap-2.dorwinia.com.			IN	A	192.168.1.9
+voice.dorwinia.com.			IN	A	192.168.1.30
+idrac-uberverse.dorwinia.com.		IN	A	192.168.1.40
+idrac-miniverse.dorwinia.com.		IN	A	192.168.1.41
+idrac-tinyverse.dorwinia.com.		IN	A	192.168.1.42
+idrac-hyperverse.dorwinia.com.		IN	A	192.168.1.44
+config.dorwinia.com.			IN	A	192.168.1.50
+ans1.dorwinia.com.			IN	A	192.168.1.51
+ans2.dorwinia.com.			IN	A	192.168.1.52
+uberverse.dorwinia.com.			IN	A	192.168.1.100
+miniverse.dorwinia.com.			IN	A	192.168.1.101
+tinyverse.dorwinia.com.			IN	A	192.168.1.102
+gameverse.dorwinia.com.			IN	A	192.168.1.103
+hyperverse.dorwinia.com.		IN	A	192.168.1.104
+singularity.dorwinia.com.		IN	A	192.168.1.111
+unifibox.dorwinia.com.			IN	A	192.168.1.132
+wikibox.dorwinia.com.			IN	A	192.168.1.140
+craftbox.dorwinia.com.			IN	A	192.168.1.143
+gitbox.dorwinia.com.			IN	A	192.168.1.144
+roxybox.dorwinia.com.			IN	A	192.168.1.145
+libre.dorwinia.com.			IN	A	192.168.1.146
