@@ -26,7 +26,6 @@ voice.dorwinia.com.			IN	A	192.168.1.30
 idrac-uberverse.dorwinia.com.		IN	A	192.168.1.40
 idrac-miniverse.dorwinia.com.		IN	A	192.168.1.41
 idrac-tinyverse.dorwinia.com.		IN	A	192.168.1.42
-idrac-gameverse.dorwinia.com.		IN	A	192.168.1.43
 idrac-hyperverse.dorwinia.com.		IN	A	192.168.1.44
 config.dorwinia.com.			IN	A	192.168.1.50
 ans1.dorwinia.com.			IN	A	192.168.1.51

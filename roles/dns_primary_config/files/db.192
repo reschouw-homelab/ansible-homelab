@@ -26,7 +26,6 @@ $TTL    604800
 40		IN		PTR			idrac-uberverse.dorwinia.com.
 41		IN		PTR			idrac-miniverse.dorwinia.com.
 42		IN		PTR			idrac-tinyverse.dorwinia.com.
-43		IN		PTR			idrac-gameverse.dorwinia.com.
 44		IN		PTR			idrac-hyperverse.dorwinia.com.
 50		IN		PTR			config.dorwinia.com.
 51		IN		PTR			ans1.dorwinia.com.
