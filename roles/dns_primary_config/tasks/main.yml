@@ -11,6 +11,16 @@
     tags:
       - dns
 
+  - name: Copy named.conf.options
+    copy:
+      src: named.conf.options
+      dest: /etc/bind/named.conf.options
+      owner: root
+      group: bind
+      mode: 0644
+    tags:
+      - dns
+
   - name: Copy db.dorwinia.com
     copy:
       src: db.dorwinia.com
