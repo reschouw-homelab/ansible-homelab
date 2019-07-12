@@ -9,17 +9,6 @@
     tags:
       - dns
 
-# Install common config files
-  - name: Copy named.conf.options
-    copy:
-      src: named.conf.options
-      dest: /etc/bind/named.conf.options
-      owner: root
-      group: bind
-      mode: 0644
-    tags:
-      - dns
-
 # Restart Bind9
   - name: Restart Bind9
     service:
