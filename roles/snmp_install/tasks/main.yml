@@ -10,8 +10,8 @@
       - common
       
   - name: Copy snmpd.conf
-    copy:
-      src: snmpd.conf
+    template:
+      src: snmpd.conf.j2
       dest: /etc/snmp/snmpd.conf
       owner: root
       group: root
