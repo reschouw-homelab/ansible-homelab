@@ -1,4 +1,7 @@
 all:
+  vars:
+    location: Virtual
+    contact: dorwin@dorwinia.com
   children:
     test:
       hosts:
