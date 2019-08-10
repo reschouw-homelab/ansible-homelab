@@ -28,4 +28,3 @@ all:
 
     games:
       hosts:
-        craftbox.dorwinia.com:
