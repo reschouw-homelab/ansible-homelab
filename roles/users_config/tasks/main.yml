@@ -30,3 +30,10 @@
   tags:
     - users
 
+# Remove users
+- name: Remove automaton user
+  user:
+    name: automaton
+    state: absent
+    remove: true
+
