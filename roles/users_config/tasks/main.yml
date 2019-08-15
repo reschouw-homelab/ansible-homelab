@@ -1,0 +1,32 @@
+# Role to configure users and custom user settings
+---
+
+# Initial user setup
+- name: ensure sudo group exists
+  group:
+    name: sudo
+    state: present
+  tags:
+    - users
+
+- name: add dorwin user
+  user:
+    name: dorwin
+    password: ***REMOVED***
+    groups: sudo
+    shell: /bin/bash
+    append: yes
+    state: present
+  tags:
+    - users
+
+# Copy config files
+- name: Copy .vimrc
+  copy:
+    src: .vimrc
+    dest: /home/dorwin/.vimrc
+    owner: dorwin
+    mode: 0664
+  tags:
+    - users
+

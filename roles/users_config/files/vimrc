@@ -1,0 +1,14 @@
+" .vimrc
+" Ryan Schouweieler
+
+" Mark current line with underline
+set cursorline
+
+" Start scrolling near screen boundaries
+set so=3
+
+" Turn on auto-indentation based on filetype
+if has("autocmd")
+filetype plugin indent on
+endif
+
