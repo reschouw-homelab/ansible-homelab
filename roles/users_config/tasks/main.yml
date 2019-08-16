@@ -23,7 +23,7 @@
 # Copy config files
 - name: Copy .vimrc
   copy:
-    src: .vimrc
+    src: vimrc
     dest: /home/dorwin/.vimrc
     owner: dorwin
     mode: 0664
