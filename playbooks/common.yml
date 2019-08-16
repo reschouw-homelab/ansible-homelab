@@ -1,0 +1,25 @@
+# Playbook to run tasks to maintain the whole environment
+
+# User config: ------------------------------------------
+- name: Configure users
+  hosts: all
+  become: yes
+  become_user: root
+  roles:
+    - users_config
+
+# Run various updates: ----------------------------------
+- name: Update OS'es
+  hosts: all
+  become: yes
+  become_user: root
+  roles:
+    - os_update
+
+- name: Update PiHole
+  hosts: dns-3.dorwinia.com
+  become: yes
+  become_user: root
+  roles:
+    - dns_pihole_update
+
