@@ -36,4 +36,5 @@
     name: automaton
     state: absent
     remove: true
-
+  tags:
+    - users
