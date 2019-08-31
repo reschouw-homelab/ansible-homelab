@@ -8,6 +8,20 @@
   roles:
     - users_config
 
+# Install standard packages: ---------------------------
+#- name: Install standard packages
+#  hosts: all
+#  become: yes
+#  become_user: root
+#  roles:
+#    - snmp_install
+
+- name: Install standard packages
+  hosts: all:!librenms.dorwinia.com
+  become: yes
+  become_user: root
+  roles:
+    - snmp_config
 # Run various updates: ----------------------------------
 - name: Update OS'es
   hosts: all
@@ -21,5 +35,5 @@
   become: yes
   become_user: root
   roles:
-    - dns_pihole_update
+    - pihole_update
 

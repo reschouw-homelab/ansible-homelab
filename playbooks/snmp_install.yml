@@ -3,4 +3,4 @@
   become: yes
   become_user: root
   roles:
-    - snmp_install
+    - snmp_config

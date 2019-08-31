@@ -1,5 +1,14 @@
 # Role to configure Bind9 to be Primary Master
 ---
+# Install Bind9
+  - name: Install Bind9
+    apt:
+      name: bind9
+      state: present
+      update_cache: yes
+    tags:
+      - dns
+
 # Copy configuration files
   - name: Copy named.conf
     copy:
