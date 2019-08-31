@@ -28,6 +28,8 @@ sexton.dorwinia.com.			IN	A	192.168.1.1
 medusa.dorwinia.com.			IN	A	192.168.1.6
 wap-1.dorwinia.com.			IN	A	192.168.1.8
 wap-2.dorwinia.com.			IN	A	192.168.1.9
+dhcp-1.dorwinia.com.			IN	A	192.168.1.21
+dhcp-2.dorwinia.com.			IN	A	192.168.1.22
 voice.dorwinia.com.			IN	A	192.168.1.30
 idrac-uberverse.dorwinia.com.		IN	A	192.168.1.40
 idrac-miniverse.dorwinia.com.		IN	A	192.168.1.41
