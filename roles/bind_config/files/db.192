@@ -42,3 +42,4 @@ $TTL    604800
 144		IN		PTR			gitbox.dorwinia.com.
 145		IN		PTR			roxybox.dorwinia.com.
 146		IN		PTR			libre.dorwinia.com.
+147		IN		PTR			plex.dorwinia.com.

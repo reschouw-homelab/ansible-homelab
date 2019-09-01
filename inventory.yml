@@ -26,6 +26,7 @@ all:
         roxybox.dorwinia.com:
         gitbox.dorwinia.com:
         wikibox.dorwinia.com:
+        plex.dorwinia.com:
 
     voice:
       hosts:

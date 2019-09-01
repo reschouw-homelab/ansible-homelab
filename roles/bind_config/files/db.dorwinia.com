@@ -50,3 +50,4 @@ craftbox.dorwinia.com.			IN	A	192.168.1.143
 gitbox.dorwinia.com.			IN	A	192.168.1.144
 roxybox.dorwinia.com.			IN	A	192.168.1.145
 libre.dorwinia.com.			IN	A	192.168.1.146
+plex.dorwinia.com.			IN	A	192.168.1.147
