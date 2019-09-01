@@ -22,6 +22,8 @@ $TTL    604800
 6		IN		PTR			medusa.dorwinia.com.
 8		IN		PTR			wap-1.dorwinia.com.
 9		IN		PTR			wap-2.dorwinia.com.
+21		IN		PTR			dhcp-1.dorwinia.com.
+22		IN		PTR			dhcp-2.dorwinia.com
 30		IN		PTR			voice.dorwinia.com.
 40		IN		PTR			idrac-uberverse.dorwinia.com.
 41		IN		PTR			idrac-miniverse.dorwinia.com.
