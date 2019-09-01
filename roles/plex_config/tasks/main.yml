@@ -1,0 +1,26 @@
+# Role to install and configure plex
+---
+  # Configure Plex Apt Repository
+  - name: Add repository
+    apt_repository:
+      repo: 'deb https://downloads.plex.tv/repo/deb/ public main'
+      state: present
+
+  - name: Add repository key
+    apt_key:
+      url: https://downloads.plex.tv/plex-keys/PlexSign.key
+      state: present
+
+#  - name: Update cache
+#    apt:
+#      update_cache: yes
+#      cache_valid_time: 3600
+  
+  # Install Plex
+  - name: Install Plex
+    apt:
+      name: plexmediaserver
+      state: present
+      allow_unauthenticated: yes
+      update_cache: true
+      cache_valid_time: 3600

@@ -16,11 +16,17 @@ all:
     dns:
       hosts:
         dns-[1:3].dorwinia.com:
+
+    dhcp:
+      hosts:
+        dhcp-[1:2].dorwinia.com:
+
     prod:
       hosts:
         roxybox.dorwinia.com:
         gitbox.dorwinia.com:
         wikibox.dorwinia.com:
+        plex.dorwinia.com:
 
     voice:
       hosts:

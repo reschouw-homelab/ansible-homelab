@@ -1,0 +1,9 @@
+# Installs and configures plex
+
+- name: Install Plex
+  hosts: plex.dorwinia.com
+  become: yes
+  become_user: root
+  roles:
+    - plex_config
+
