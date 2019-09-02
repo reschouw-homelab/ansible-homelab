@@ -1,0 +1,6 @@
+- name: Install and configure snmpd
+  hosts: dhcp-1.dorwinia.com
+  become: yes
+  become_user: root
+  roles:
+    - dhcp_config
