@@ -19,6 +19,13 @@
     tags:
       - dhcp
 
+  - name: Ensure dhcp.leases directory exists
+    file:
+      path: /var/db/
+      state: directory
+    tags:
+      - dhcp
+
   - name: Ensure dhcp.leases file exists
     file:
       path: /var/db/dhcp.leases
