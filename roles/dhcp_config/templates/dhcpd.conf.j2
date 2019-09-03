@@ -1,0 +1,49 @@
+# Primary DHCP server config
+
+# Take precedence over other DHCP server leases
+authoritative;
+
+# Dynamic DNS Updates
+ddns-update-style none;
+
+# Global options
+option domain-name "dorwinia.com";
+
+# Set logging
+log-facility local7;
+
+# High-availability settings
+failover peer "failover-partner" {
+{% if primary %}
+	primary;
+	address dhcp-1.dorwinia.com;
+	port 519;
+	peer address dhcp-2.dorwinia.com;
+	peer port 520;
+	mclt 3600;
+	split 128;
+{% else %}
+	secondary;
+	address dhcp-2.dorwinia.com;
+	port 520;
+	peer address dhcp-1.dorwinia.com;
+	peer port 519;
+{% endif %}
+	max-response-delay 60;
+	max-unacked-updates 10;
+	load balance max seconds 3;
+}
+
+# Subnet declarations
+subnet 192.168.1.0 netmask 255.255.255.0 {
+        option subnet-mask              255.255.255.0;
+        option routers                  192.168.1.1;
+        option broadcast-address        192.168.1.255;
+        option domain-name-servers      192.168.1.13, 192.168.1.11, 192.168.1.12;
+        default-lease-time 		3600;
+        max-lease-time 			7200;
+	pool {
+		range			192.168.1.200 192.168.1.254;
+		failover peer 		"failover-partner";
+	}
+}

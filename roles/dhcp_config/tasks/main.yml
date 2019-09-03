@@ -10,12 +10,30 @@
       - dhcp
 
   - name: Copy dhcpd.conf
-    copy:
-      src: dhcpd.conf
+    template:
+      src: dhcpd.conf.j2
       dest: /etc/dhcp/dhcpd.conf
       owner: root
       group: root
       mode: 0600
+    tags:
+      - dhcp
+
+  - name: Ensure dhcp.leases directory exists
+    file:
+      path: /var/db/
+      state: directory
+    tags:
+      - dhcp
+
+  - name: Ensure dhcp.leases file exists
+    file:
+      path: /var/db/dhcp.leases
+      force: no
+      group: root
+      owner: root
+      mode: 0600
+      state: touch
     tags:
       - dhcp
 

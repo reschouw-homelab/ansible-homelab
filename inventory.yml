@@ -3,6 +3,7 @@ all:
     location: Virtual
     contact: dorwin@dorwinia.com
   children:
+
     test:
       hosts:
         ans1.dorwinia.com:
@@ -19,7 +20,10 @@ all:
 
     dhcp:
       hosts:
-        dhcp-[1:2].dorwinia.com:
+        dhcp-1.dorwinia.com:
+          primary: true
+        dhcp-2.dorwinia.com:
+          primary: false
 
     prod:
       hosts:
@@ -31,6 +35,3 @@ all:
     voice:
       hosts:
         voice.dorwinia.com:
-
-    games:
-      hosts:
