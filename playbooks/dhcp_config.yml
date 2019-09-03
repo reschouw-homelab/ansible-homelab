@@ -1,5 +1,5 @@
-- name: Install and configure snmpd
-  hosts: dhcp-1.dorwinia.com
+- name: Install and configure isc-dhcp-server
+  hosts: dhcp
   become: yes
   become_user: root
   roles:
