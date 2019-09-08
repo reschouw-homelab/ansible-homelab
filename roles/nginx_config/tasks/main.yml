@@ -1,0 +1,37 @@
+# Role to install and configure snmpd
+---
+  - name: Install nginx
+    apt:
+      name: nginx
+      state: present
+      update_cache: true
+      cache_valid_time: 3600
+    tags:
+      - nginx
+
+  - name: Copy dorwinia.conf
+    copy:
+      src: dorwinia.conf
+      dest: /etc/nginx/conf.d/dorwinia.conf
+      owner: root
+      group: root
+      mode: 0600
+    tags:
+      - nginx
+      
+  - name: Copy index file
+    copy:
+      src: index.nginx-debian.html
+      dest: /var/www/html/indes.nginx-debian.html
+      owner: root
+      group: root
+      mode: 0600
+    tags:
+      - nginx
+
+  - name: Restart nginx service
+    service:
+      name: nginx
+      state: restarted
+    tags:
+      - nginx
