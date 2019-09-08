@@ -25,9 +25,12 @@ all:
         dhcp-2.dorwinia.com:
           primary: false
 
-    prod:
+    nginx:
       hosts:
         roxybox.dorwinia.com:
+
+    prod:
+      hosts:
         gitbox.dorwinia.com:
         wikibox.dorwinia.com:
         plex.dorwinia.com:
