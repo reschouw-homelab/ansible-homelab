@@ -22,10 +22,10 @@
   - name: Copy index file
     copy:
       src: index.nginx-debian.html
-      dest: /var/www/html/indes.nginx-debian.html
+      dest: /var/www/html/index.nginx-debian.html
       owner: root
       group: root
-      mode: 0600
+      mode: 0755
     tags:
       - nginx
 

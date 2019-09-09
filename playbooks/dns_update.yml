@@ -1,6 +1,6 @@
 # Playbook to install and update DNS infrastructure
 - name: Configure dns servers
-  hosts: dns-1.dorwinia.com dns-2.dorwinia.com
+  hosts: 192.168.1.11 192.168.1.12
   become: yes
   become_user: root
   roles:
