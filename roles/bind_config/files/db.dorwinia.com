@@ -21,6 +21,7 @@ dns-3		IN	A	192.168.1.13
 dorwinia.com.				IN	A	76.174.12.157
 wiki.dorwinia.com.			IN	A	76.174.12.157
 git.dorwinia.com.			IN	A	76.174.12.157
+movies.dorwinia.com.			IN	A	76.174.12.157
 
 ; Device A Records: -------------------------------------------------------
 
