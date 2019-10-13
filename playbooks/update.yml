@@ -10,4 +10,4 @@
   become: yes
   become_user: root
   roles:
-    - dns_pihole_update
+    - pihole_update
