@@ -1,5 +1,6 @@
-# Role to install and configure snmpd
+# Role to install and configure nginx
 ---
+  # Install nginx
   - name: Install nginx
     apt:
       name: nginx
@@ -9,6 +10,30 @@
     tags:
       - nginx
 
+  # Install Certbot 
+  - name: Add repository
+    apt_repository:
+            repo: ppa:certbot/certbot
+
+  - name: Install Certbot
+    apt:
+      name: certbot
+      state: present
+      update_cache: true
+      cache_valid_time: 3600
+    tags:
+      - nginx
+
+  - name: Install Certbot Nginx module
+    apt:
+      name: python-certbot-nginx
+      state: present
+      update_cache: true
+      cache_valid_time: 3600
+    tags:
+      - nginx
+
+  # Copy Configuration Files
   - name: Copy dorwinia.conf
     copy:
       src: dorwinia.conf
@@ -29,6 +54,7 @@
     tags:
       - nginx
 
+  # Restart nginx
   - name: Restart nginx service
     service:
       name: nginx
