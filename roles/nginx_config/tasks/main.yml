@@ -17,7 +17,16 @@
 
   - name: Install Certbot
     apt:
-      name: certbot python-certbot-nginx
+      name: certbot
+      state: present
+      update_cache: true
+      cache_valid_time: 3600
+    tags:
+      - nginx
+
+  - name: Install Certbot Nginx module
+    apt:
+      name: python-certbot-nginx
       state: present
       update_cache: true
       cache_valid_time: 3600
