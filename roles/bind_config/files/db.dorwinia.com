@@ -39,6 +39,8 @@ idrac-hyperverse.dorwinia.com.		IN	A	192.168.1.44
 config.dorwinia.com.			IN	A	192.168.1.50
 ans1.dorwinia.com.			IN	A	192.168.1.51
 ans2.dorwinia.com.			IN	A	192.168.1.52
+ident-1.dorwinia.com.			IN	A	192.168.1.61
+ident-2.dorwinia.com.			IN	A	192.168.1.62
 uberverse.dorwinia.com.			IN	A	192.168.1.100
 miniverse.dorwinia.com.			IN	A	192.168.1.101
 tinyverse.dorwinia.com.			IN	A	192.168.1.102

@@ -29,6 +29,11 @@ all:
         dhcp-2.dorwinia.com:
           primary: false
 
+    ident:
+      hosts:
+        ident-1.dorwinia.com:
+        ident-2.dorwinia.com:
+
     nginx:
       hosts:
         roxybox.dorwinia.com:

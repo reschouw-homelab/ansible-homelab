@@ -32,6 +32,8 @@ $TTL    604800
 50		IN		PTR			config.dorwinia.com.
 51		IN		PTR			ans1.dorwinia.com.
 52		IN		PTR			ans2.dorwinia.com.
+61		IN		PTR			ident-1.dorwinia.com.
+62		IN		PTR			ident-2.dorwinia.com.
 100		IN		PTR			uberverse.dorwinia.com.
 101		IN		PTR			miniverse.dorwinia.com.
 102		IN		PTR			tinyverse.dorwinia.com.
