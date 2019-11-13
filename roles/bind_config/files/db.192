@@ -25,7 +25,7 @@ $TTL    604800
 21		IN		PTR			dhcp-1.dorwinia.com.
 22		IN		PTR			dhcp-2.dorwinia.com.
 30		IN		PTR			voice.dorwinia.com.
-40		IN		PTR			idrac-uberverse.dorwinia.com.
+40		IN		PTR			idrac-miniverse-2.dorwinia.com.
 41		IN		PTR			idrac-miniverse.dorwinia.com.
 42		IN		PTR			idrac-tinyverse.dorwinia.com.
 44		IN		PTR			idrac-hyperverse.dorwinia.com.
@@ -34,7 +34,7 @@ $TTL    604800
 52		IN		PTR			ans2.dorwinia.com.
 61		IN		PTR			ident-1.dorwinia.com.
 62		IN		PTR			ident-2.dorwinia.com.
-100		IN		PTR			uberverse.dorwinia.com.
+100		IN		PTR			miniverse-2.dorwinia.com.
 101		IN		PTR			miniverse.dorwinia.com.
 102		IN		PTR			tinyverse.dorwinia.com.
 103		IN		PTR			gameverse.dorwinia.com.

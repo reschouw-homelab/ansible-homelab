@@ -32,7 +32,7 @@ wap-2.dorwinia.com.			IN	A	192.168.1.9
 dhcp-1.dorwinia.com.			IN	A	192.168.1.21
 dhcp-2.dorwinia.com.			IN	A	192.168.1.22
 voice.dorwinia.com.			IN	A	192.168.1.30
-idrac-uberverse.dorwinia.com.		IN	A	192.168.1.40
+idrac-miniverse-2.dorwinia.com.		IN	A	192.168.1.40
 idrac-miniverse.dorwinia.com.		IN	A	192.168.1.41
 idrac-tinyverse.dorwinia.com.		IN	A	192.168.1.42
 idrac-hyperverse.dorwinia.com.		IN	A	192.168.1.44
@@ -41,7 +41,7 @@ ans1.dorwinia.com.			IN	A	192.168.1.51
 ans2.dorwinia.com.			IN	A	192.168.1.52
 ident-1.dorwinia.com.			IN	A	192.168.1.61
 ident-2.dorwinia.com.			IN	A	192.168.1.62
-uberverse.dorwinia.com.			IN	A	192.168.1.100
+miniverse-2.dorwinia.com.		IN	A	192.168.1.100
 miniverse.dorwinia.com.			IN	A	192.168.1.101
 tinyverse.dorwinia.com.			IN	A	192.168.1.102
 gameverse.dorwinia.com.			IN	A	192.168.1.103
