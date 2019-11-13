@@ -1,0 +1,33 @@
+# Primary Bind9 Configuration file
+
+# Load options
+include "/etc/bind/named.conf.options";
+
+# Zone Configurations
+
+{% if primary %}
+zone "dorwinia.com" {
+	type master;
+	file "/etc/bind/db.dorwinia.com";
+	allow-transfer { 192.168.1.12; };
+        };
+
+zone "1.168.192.in-addr.arpa" {
+	type master;
+	notify no;
+	file "/etc/bind/db.192";
+	allow-transfer { 192.168.1.12; };
+};
+{% else %}
+zone "dorwinia.com" {
+        type slave;
+        file "/var/cache/bind/db.dorwinia.com";
+        masters { 192.168.1.11; };
+        };
+
+zone "1.168.192.in-addr.arpa" {
+        type slave;
+        file "/var/cache/bind/db.192";
+        masters { 192.168.1.11; };
+};
+{% endif %}

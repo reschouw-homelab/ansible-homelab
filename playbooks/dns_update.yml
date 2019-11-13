@@ -1,13 +1,13 @@
 # Playbook to install and update DNS infrastructure
 - name: Configure dns servers
-  hosts: 192.168.1.11 192.168.1.12
+  hosts: dns-1.dorwinia.com dns-2.dorwinia.com
   become: yes
   become_user: root
   roles:
-    - bind_config
+    - dns_config
 
 - name: Update and reload PiHole on dns-3
-  hosts: 192.168.1.13
+  hosts: dns-3.dorwinia.com
   become: yes
   become_user: root
   roles:

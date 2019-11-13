@@ -32,7 +32,7 @@
     - os_update
 
 - name: Update PiHole
-  hosts: 192.168.1.13
+  hosts: dns-3.dorwinia.com
   become: yes
   become_user: root
   roles:

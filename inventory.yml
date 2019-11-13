@@ -16,11 +16,14 @@ all:
 
     dns:
       hosts:
-        #dns-[1:3].dorwinia.com:
-        192.168.1.11:
-        192.168.1.12:
-        192.168.1.13:
-
+        dns-1.dorwinia.com:
+          ansible-host: 192.168.1.11
+          primary: true
+        dns-2.dorwinia.com:
+          ansible-host: 192.168.1.12
+          primary: false
+        dns-3.dorwinia.com:
+          ansible-host: 192.168.1.13
 
     dhcp:
       hosts:

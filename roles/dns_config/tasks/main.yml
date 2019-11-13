@@ -11,8 +11,8 @@
 
 # Copy configuration files
   - name: Copy named.conf
-    copy:
-      src: named.conf
+    template:
+      src: named.conf.j2
       dest: /etc/bind/named.conf
       owner: root
       group: bind
@@ -31,6 +31,7 @@
       - dns
 
   - name: Copy db.dorwinia.com
+    when: primary == true
     copy:
       src: db.dorwinia.com
       dest: /etc/bind/db.dorwinia.com
@@ -41,6 +42,7 @@
       - dns
 
   - name: Copy db.192
+    when: primary == true
     copy:
       src: db.192
       dest: /etc/bind/db.192
