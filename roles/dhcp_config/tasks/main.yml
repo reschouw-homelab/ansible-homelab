@@ -19,6 +19,17 @@
     tags:
       - dhcp
 
+  - name: Copy dynamic dns key
+    copy:
+      src: /home/dorwin/files-dorwinia/dhcpupdate.key
+      dest: /etc/dhcp/dhcpupdate.key
+      owner: root
+      group: root
+      mode: 0600
+    tags:
+      - dhcp
+
+
   - name: Ensure dhcp.leases directory exists
     file:
       path: /var/db/

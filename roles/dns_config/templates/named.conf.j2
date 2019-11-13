@@ -3,13 +3,25 @@
 # Load options
 include "/etc/bind/named.conf.options";
 
+{% primary %}
+# Load dhcpupdate key file
+include "/etc/bind/dhcpupdate.key"
+{% endif %}
+
 # Zone Configurations
 
 {% if primary %}
+
+key dhcpupdate {
+	algorithm hmac-md5;
+	secret "fpenDYMQuydgqgXKcGPN+Q==";
+}
+
 zone "dorwinia.com" {
 	type master;
 	file "/etc/bind/db.dorwinia.com";
 	allow-transfer { 192.168.1.12; };
+	allow-update { key "dhcpupdate"; };
         };
 
 zone "1.168.192.in-addr.arpa" {
@@ -17,6 +29,7 @@ zone "1.168.192.in-addr.arpa" {
 	notify no;
 	file "/etc/bind/db.192";
 	allow-transfer { 192.168.1.12; };
+	allow-update { key "dhcpupdate"; };
 };
 {% else %}
 zone "dorwinia.com" {

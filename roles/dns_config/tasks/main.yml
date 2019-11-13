@@ -52,6 +52,18 @@
     tags:
       - dns
 
+  - name: Copy dynamic dns key
+    when: primary == true
+    copy:
+      src: /home/dorwin/files-dorwinia/dhcpupdate.key
+      dest: /etc/bind/dhcpupdate.key
+      owner: root
+      group: bind
+      mode: 0644
+    tags:
+      - dns
+
+
 # Restart Bind9
   - name: Restart Bind9
     service:
