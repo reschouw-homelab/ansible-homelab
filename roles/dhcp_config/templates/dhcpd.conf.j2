@@ -4,7 +4,7 @@
 authoritative;
 
 # Dynamic DNS Updates
-ddns-update-style none;
+ddns-update-style interim;
 
 # Global options
 option domain-name "dorwinia.com";
@@ -46,4 +46,17 @@ subnet 192.168.1.0 netmask 255.255.255.0 {
 		range			192.168.1.200 192.168.1.254;
 		failover peer 		"failover-partner";
 	}
+}
+
+# Dynamic DNS configuration
+include "/etc/dhcp/dhcpupdate.key";
+
+zone dorwinia.com. {
+	primary 192.168.1.11;
+	key dhcpupdate;
+}
+
+zone 1.168.192.in-addr.arpa {
+	primary 192.168.1.11;
+	key dhcpupdate;
 }
