@@ -34,7 +34,7 @@
     when: primary == true
     copy:
       src: db.dorwinia.com
-      dest: /etc/bind/db.dorwinia.com
+      dest: /var/lib/bind/db.dorwinia.com
       owner: root
       group: bind
       mode: 0644
@@ -45,7 +45,7 @@
     when: primary == true
     copy:
       src: db.192
-      dest: /etc/bind/db.192
+      dest: /var/lib/bind/db.192
       owner: root
       group: bind
       mode: 0644
@@ -59,10 +59,31 @@
       dest: /etc/bind/dhcpupdate.key
       owner: root
       group: bind
-      mode: 0644
+      mode: 0640
     tags:
       - dns
 
+#  - name: Ensure db.dorwinia.com.jnl file exists
+#    file:
+#      path: /etc/bind/db.dorwinia.com.jnl
+#      force: no
+#      owner: bind
+#      group: bind
+#      mode: 0660
+#      state: touch
+#    tags:
+#      - dns
+
+#  - name: Ensure db.192.jnl file exists
+#    file:
+#      path: /etc/bind/db.192.jnl
+#      force: no
+#      owner: bind
+#      group: bind
+#      mode: 0660
+#      state: touch
+#    tags:
+#      - dns
 
 # Restart Bind9
   - name: Restart Bind9
