@@ -18,10 +18,10 @@ dns-3		IN	A	192.168.1.13
 
 ; Public WAN Records: -----------------------------------------------------
 
-dorwinia.com.				IN	A	76.174.12.157
-wiki.dorwinia.com.			IN	A	76.174.12.157
-git.dorwinia.com.			IN	A	76.174.12.157
-movies.dorwinia.com.			IN	A	76.174.12.157
+dorwinia.com.				IN	A	70.93.179.146
+wiki.dorwinia.com.			IN	A	70.93.179.146
+git.dorwinia.com.			IN	A	70.93.179.146
+movies.dorwinia.com.			IN	A	70.93.179.146
 
 ; Device A Records: -------------------------------------------------------
 
