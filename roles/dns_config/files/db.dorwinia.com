@@ -55,3 +55,4 @@ roxybox.dorwinia.com.			IN	A	192.168.1.145
 libre.dorwinia.com.			IN	A	192.168.1.146
 plex.dorwinia.com.			IN	A	192.168.1.147
 syslog.dorwinia.com.			IN	A	192.168.1.148
+netbox.dorwinia.com.			IN	A	192.168.1.149
