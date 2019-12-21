@@ -48,3 +48,4 @@ $TTL    604800
 146		IN		PTR			libre.dorwinia.com.
 147		IN		PTR			plex.dorwinia.com.
 148		IN		PTR			syslog.dorwinia.com.
+149		IN		PTR			netbox.dorwinia.com.
