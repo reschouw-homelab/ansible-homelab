@@ -53,7 +53,7 @@ subnet 192.168.1.0 netmask 255.255.255.0 {
 # User LAN
 subnet 10.0.40.0 netmask 255.255.255.0 {
         option subnet-mask              255.255.255.0;
-        option routers                  10.0.40.0;
+        option routers                  10.0.40.1;
         option broadcast-address        10.0.40.255;
         option domain-name-servers      192.168.1.13, 192.168.1.11, 192.168.1.12;
         default-lease-time 		3600;
@@ -67,7 +67,7 @@ subnet 10.0.40.0 netmask 255.255.255.0 {
 # Guest LAN
 subnet 10.0.50.0 netmask 255.255.255.0 {
         option subnet-mask              255.255.255.0;
-        option routers                  10.0.50.0;
+        option routers                  10.0.50.1;
         option broadcast-address        10.0.50.255;
         option domain-name-servers      192.168.1.13, 192.168.1.11, 192.168.1.12;
         default-lease-time 		3600;
