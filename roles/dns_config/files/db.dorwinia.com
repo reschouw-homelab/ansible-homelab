@@ -21,7 +21,6 @@ dns-3		IN	A	192.168.1.13
 dorwinia.com.				IN	A	192.168.1.145
 wiki.dorwinia.com.			IN	A	192.168.1.145
 git.dorwinia.com.			IN	A	192.168.1.145
-movies.dorwinia.com.			IN	A	192.168.1.145
 
 ; Device A Records: -------------------------------------------------------
 
@@ -55,4 +54,3 @@ roxybox.dorwinia.com.			IN	A	192.168.1.145
 libre.dorwinia.com.			IN	A	192.168.1.146
 plex.dorwinia.com.			IN	A	192.168.1.147
 syslog.dorwinia.com.			IN	A	192.168.1.148
-netbox.dorwinia.com.			IN	A	192.168.1.149
