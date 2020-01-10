@@ -51,3 +51,7 @@ all:
     voice:
       hosts:
         voice.dorwinia.com:
+
+    games:
+      hosts:
+        craftbox.dorwinia.com:
