@@ -1,0 +1,21 @@
+# Rules for Dorwinia
+
+# Send all messages to syslog server except the specified facilities
+*.info;mail.none;authpriv.none;cron.none @192.168.1.148:1514
+
+{% if inventory_hostname == 'craftbox.dorwinia.com' %}
+# Pull in logs from Minecraft server
+input(type="imfile"
+        Tag="minecraft-logs"
+        File="/home/dorwin/vanilla-mc/logs/latest.log"
+        Severity="info"
+)
+
+if ($programname contains "minecraft") then {
+        action (type="omfwd"
+                Target="192.168.1.148"
+                Port="1514"
+                Protocol="udp"
+        )
+}
+{% endif %}
