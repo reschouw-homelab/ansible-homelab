@@ -19,7 +19,7 @@ $TTL    604800
 ; Device PTR Records: -----------------------------------------------------
 
 1		IN		PTR			sexton.dorwinia.com.
-6		IN		PTR			medusa.dorwinia.com.
+2		IN		PTR			medusa.dorwinia.com.
 8		IN		PTR			wap-1.dorwinia.com.
 9		IN		PTR			wap-2.dorwinia.com.
 21		IN		PTR			dhcp-1.dorwinia.com.

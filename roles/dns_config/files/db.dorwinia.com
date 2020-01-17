@@ -25,7 +25,7 @@ git.dorwinia.com.			IN	A	192.168.1.145
 ; Device A Records: -------------------------------------------------------
 
 sexton.dorwinia.com.			IN	A	192.168.1.1
-medusa.dorwinia.com.			IN	A	192.168.1.6
+medusa.dorwinia.com.			IN	A	192.168.1.2
 wap-1.dorwinia.com.			IN	A	192.168.1.8
 wap-2.dorwinia.com.			IN	A	192.168.1.9
 dhcp-1.dorwinia.com.			IN	A	192.168.1.21
