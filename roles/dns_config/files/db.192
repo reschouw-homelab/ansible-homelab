@@ -3,7 +3,7 @@
 ;
 $TTL    604800
 @       IN      SOA     dns-1.dorwinia.com. root.dorwinia.com. (
-                              6         ; Serial
+                            600         ; Serial
                          604800         ; Refresh
                           86400         ; Retry
                         2419200         ; Expire
