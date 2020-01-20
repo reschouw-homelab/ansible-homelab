@@ -19,6 +19,7 @@ dns-3		IN	A	192.168.1.13
 ; Public WAN Records: -----------------------------------------------------
 
 dorwinia.com.				IN	A	192.168.1.145
+test.dorwinia.com.			IN	A	192.168.1.145
 wiki.dorwinia.com.			IN	A	192.168.1.145
 git.dorwinia.com.			IN	A	192.168.1.145
 

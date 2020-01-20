@@ -19,3 +19,55 @@ if ($programname contains "minecraft") then {
         )
 }
 {% endif %}
+
+
+{% if inventory_hostname == 'roxybox.dorwinia.com' %}
+#
+# Pull in logs from reverse proxy box, separated by site
+#
+
+# Test site logs
+input(type="imfile"
+        Tag="nginx-access-test"
+        File="/var/log/nginx/test.access"
+        Severity="info"
+)
+input(type="imfile"
+        Tag="nginx-error-test"
+        File="/var/log/nginx/test.error"
+        Severity="error"
+)
+
+#Wiki site logs
+input(type="imfile"
+        Tag="nginx-access-wiki"
+        File="/var/log/nginx/wiki.access"
+        Severity="info"
+)
+input(type="imfile"
+        Tag="nginx-error-wiki"
+        File="/var/log/nginx/wiki.error"
+        Severity="error"
+)
+
+#Gitlab site logs
+input(type="imfile"
+        Tag="nginx-access-gitlab"
+        File="/var/log/nginx/gitlab.access"
+        Severity="info"
+)
+input(type="imfile"
+        Tag="nginx-error-gitlab"
+        File="/var/log/nginx/gitlab.error"
+        Severity="error"
+)
+
+# Ship all nginx site logs to 
+if ($programname contains "nginx") then {
+        action (type="omfwd"
+                Target="192.168.1.148"
+                Port="1514"
+                Protocol="udp"
+        )
+}
+{% endif %}
