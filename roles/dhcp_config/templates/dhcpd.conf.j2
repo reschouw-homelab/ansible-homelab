@@ -62,6 +62,17 @@ subnet 10.0.40.0 netmask 255.255.255.0 {
 		range			10.0.40.10 10.0.40.254;
 		failover peer 		"failover-partner";
 	}
+	# Dynamic DNS configuration
+	include "/etc/dhcp/dhcpupdate.key";
+	zone local.dorwinia.com. {
+	        primary 192.168.1.11;
+	        key dhcpupdate;
+	}
+
+	zone 40.0.10.in-addr.arpa {
+	        primary 192.168.1.11;
+	        key dhcpupdate;
+	}
 }
 
 # Guest LAN
@@ -76,18 +87,15 @@ subnet 10.0.50.0 netmask 255.255.255.0 {
 		range			10.0.50.10 10.0.50.254;
 		failover peer 		"failover-partner";
 	}
-}
+	# Dynamic DNS configuration
+        include "/etc/dhcp/dhcpupdate.key";
+        zone guest.dorwinia.com. {
+                primary 192.168.1.11;
+                key dhcpupdate;
+        }
 
-
-# Dynamic DNS configuration
-include "/etc/dhcp/dhcpupdate.key";
-
-zone dorwinia.com. {
-	primary 192.168.1.11;
-	key dhcpupdate;
-}
-
-zone 1.168.192.in-addr.arpa {
-	primary 192.168.1.11;
-	key dhcpupdate;
+        zone 50.0.10.in-addr.arpa {
+                primary 192.168.1.11;
+                key dhcpupdate;
+        }
 }
