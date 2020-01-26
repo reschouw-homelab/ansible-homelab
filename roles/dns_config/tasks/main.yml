@@ -41,11 +41,55 @@
     tags:
       - dns
 
+  - name: Copy db.local.dorwinia.com
+    when: primary == true
+    copy:
+      src: db.local.dorwinia.com
+      dest: /var/lib/bind/db.local.dorwinia.com
+      owner: root
+      group: bind
+      mode: 0644
+    tags:
+      - dns
+  
+- name: Copy db.guest.dorwinia.com
+    when: primary == true
+    copy:
+      src: db.guest.dorwinia.com
+      dest: /var/lib/bind/db.guest.dorwinia.com
+      owner: root
+      group: bind
+      mode: 0644
+    tags:
+      - dns
+
   - name: Copy db.192
     when: primary == true
     copy:
       src: db.192
       dest: /var/lib/bind/db.192
+      owner: root
+      group: bind
+      mode: 0644
+    tags:
+      - dns
+
+  - name: Copy db.40.0.10
+    when: primary == true
+    copy:
+      src: db.40.0.10
+      dest: /var/lib/bind/db.40.0.10
+      owner: root
+      group: bind
+      mode: 0644
+    tags:
+      - dns
+
+  - name: Copy db.50.0.10
+    when: primary == true
+    copy:
+      src: db.50.0.10
+      dest: /var/lib/bind/db.50.0.10
       owner: root
       group: bind
       mode: 0644
