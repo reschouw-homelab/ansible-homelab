@@ -41,7 +41,6 @@ zone "1.168.192.in-addr.arpa" {
 	type master;
 	file "/var/lib/bind/db.192";
 	allow-transfer { 192.168.1.12; };
-	allow-update { key "dhcpupdate"; };
 	};
 
 # Reverse entries for home LAN
