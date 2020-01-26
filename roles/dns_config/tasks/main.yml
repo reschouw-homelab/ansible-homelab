@@ -52,7 +52,7 @@
     tags:
       - dns
   
-- name: Copy db.guest.dorwinia.com
+  - name: Copy db.guest.dorwinia.com
     when: primary == true
     copy:
       src: db.guest.dorwinia.com
