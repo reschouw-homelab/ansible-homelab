@@ -6,9 +6,6 @@ authoritative;
 # Dynamic DNS Updates
 ddns-update-style interim;
 
-# Global options
-option domain-name "dorwinia.com";
-
 # Set logging
 log-facility local7;
 
@@ -38,6 +35,7 @@ failover peer "failover-partner" {
 
 # Management Network
 subnet 192.168.1.0 netmask 255.255.255.0 {
+	option domain-name		"dorwinia.com";
         option subnet-mask              255.255.255.0;
         option routers                  192.168.1.1;
         option broadcast-address        192.168.1.255;
@@ -52,6 +50,7 @@ subnet 192.168.1.0 netmask 255.255.255.0 {
 
 # User LAN
 subnet 10.0.40.0 netmask 255.255.255.0 {
+	option domain-name		"local.dorwinia.com";
         option subnet-mask              255.255.255.0;
         option routers                  10.0.40.1;
         option broadcast-address        10.0.40.255;
@@ -62,21 +61,11 @@ subnet 10.0.40.0 netmask 255.255.255.0 {
 		range			10.0.40.10 10.0.40.254;
 		failover peer 		"failover-partner";
 	}
-	# Dynamic DNS configuration
-	include "/etc/dhcp/dhcpupdate.key";
-	zone local.dorwinia.com. {
-	        primary 192.168.1.11;
-	        key dhcpupdate;
-	}
-
-	zone 40.0.10.in-addr.arpa {
-	        primary 192.168.1.11;
-	        key dhcpupdate;
-	}
 }
 
 # Guest LAN
 subnet 10.0.50.0 netmask 255.255.255.0 {
+	option domain-name		"guest.dorwinia.com";
         option subnet-mask              255.255.255.0;
         option routers                  10.0.50.1;
         option broadcast-address        10.0.50.255;
@@ -87,15 +76,27 @@ subnet 10.0.50.0 netmask 255.255.255.0 {
 		range			10.0.50.10 10.0.50.254;
 		failover peer 		"failover-partner";
 	}
-	# Dynamic DNS configuration
-        include "/etc/dhcp/dhcpupdate.key";
-        zone guest.dorwinia.com. {
-                primary 192.168.1.11;
-                key dhcpupdate;
-        }
-
-        zone 50.0.10.in-addr.arpa {
-                primary 192.168.1.11;
-                key dhcpupdate;
-        }
 }
+
+# Dynamic DNS configuration
+include "/etc/dhcp/dhcpupdate.key";
+# User LAN
+zone local.dorwinia.com. {
+        primary 192.168.1.11;
+        key dhcpupdate;
+}
+zone 40.0.10.in-addr.arpa {
+        primary 192.168.1.11;
+        key dhcpupdate;
+}
+#Guest LAN
+zone guest.dorwinia.com. {
+        primary 192.168.1.11;
+        key dhcpupdate;
+}
+
+zone 50.0.10.in-addr.arpa {
+        primary 192.168.1.11;
+        key dhcpupdate;
+}
+
