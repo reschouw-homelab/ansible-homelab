@@ -62,8 +62,42 @@ input(type="imfile"
         Severity="error"
 )
 
-# Ship all nginx site logs to 
+# Ship all nginx site logs to graylog
 if ($programname contains "nginx") then {
+        action (type="omfwd"
+                Target="192.168.1.148"
+                Port="1514"
+                Protocol="udp"
+        )
+}
+{% endif %}
+
+{% if inventory_hostname == 'netbox.dorwinia.com' %}
+#
+# Pull in logs from nginx and netbox
+# 
+
+# nginx logs
+input(type="imfile"
+        Tag="netbox-access-nginx"
+        File="/var/log/nginx/access.log"
+        Severity="info"
+)
+input(type="imfile"
+        Tag="netbox-error-nginx"
+        File="/var/log/nginx/error.log"
+        Severity="error"
+)
+
+# netbox logs
+input(type="imfile"
+        Tag="netbox-log"
+        File="/var/log/netbox.log"
+        Severity="info"
+)
+
+# Ship all nginx and netbox logs to graylog
+if ($programname contains "netbox") then {
         action (type="omfwd"
                 Target="192.168.1.148"
                 Port="1514"
