@@ -3,7 +3,7 @@
 ;
 $TTL    604800
 @       IN      SOA     dns-1.dorwinia.com. root.dorwinia.com. (
-                            600         ; Serial
+                            603         ; Serial
                          604800         ; Refresh
                           86400         ; Retry
                         2419200         ; Expire
@@ -13,8 +13,6 @@ $TTL    604800
 11		IN      PTR     dns-1.dorwinia.com.
 @		IN      NS      dns-2.
 12		IN      PTR     dns-2.dorwinia.com.
-@		IN      NS      dns-3.
-13		IN      PTR     dns-3.dorwinia.com.
 
 ; Device PTR Records: -----------------------------------------------------
 
@@ -22,6 +20,7 @@ $TTL    604800
 2		IN		PTR			medusa.dorwinia.com.
 8		IN		PTR			wap-1.dorwinia.com.
 9		IN		PTR			wap-2.dorwinia.com.
+11		IN		PTR			dns-3.dorwinia.com.
 21		IN		PTR			dhcp-1.dorwinia.com.
 22		IN		PTR			dhcp-2.dorwinia.com.
 30		IN		PTR			voice.dorwinia.com.
