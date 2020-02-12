@@ -3,7 +3,7 @@
 ;
 $TTL    604800
 @       IN      SOA     dns-1.dorwinia.com. root.dorwinia.com. (
-                            603         ; Serial
+                            604         ; Serial
                          604800         ; Refresh
                           86400         ; Retry
                         2419200         ; Expire
@@ -47,3 +47,4 @@ $TTL    604800
 146		IN		PTR			libre.dorwinia.com.
 147		IN		PTR			plex.dorwinia.com.
 148		IN		PTR			syslog.dorwinia.com.
+150		IN		PTR			wordpress.dorwinic.com.

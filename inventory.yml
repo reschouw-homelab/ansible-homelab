@@ -48,6 +48,7 @@ all:
         gitbox.dorwinia.com:
         wikibox.dorwinia.com:
         plex.dorwinia.com:
+        wordpress.dorwinia.com:
 
     voice:
       hosts:
