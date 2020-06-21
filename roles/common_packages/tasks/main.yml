@@ -1,0 +1,20 @@
+# Role to nstall common packages
+---
+  - name: Install Packages
+    apt:
+      name: {{ item }}
+      state: present
+      update_cache: yes
+    with_items:
+      - tree
+      - vim
+      - sl
+      - nmap
+      - tmux
+      - htop
+      - curl
+      - wget
+      - unzip
+      - traceroute:
+    tags:
+      - common_packages
