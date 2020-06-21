@@ -3,7 +3,7 @@
 ;
 $TTL    604800
 @       IN      SOA     dns-1.dorwinia.com. root.dorwinia.com. (
-                            604         ; Serial
+                          61001         ; Serial
                          604800         ; Refresh
                           86400         ; Retry
                         2419200         ; Expire
@@ -24,15 +24,20 @@ $TTL    604800
 21		IN		PTR			dhcp-1.dorwinia.com.
 22		IN		PTR			dhcp-2.dorwinia.com.
 30		IN		PTR			voice.dorwinia.com.
-40		IN		PTR			idrac-miniverse-2.dorwinia.com.
-41		IN		PTR			idrac-miniverse.dorwinia.com.
-42		IN		PTR			idrac-tinyverse.dorwinia.com.
-44		IN		PTR			idrac-hyperverse.dorwinia.com.
+31		IN		PTR			esxi-1.dorwinia.com.
+32		IN		PTR			esxi-2.dorwinia.com.
+33		IN		PTR			esxi-3.dorwinia.com.
+34		IN		PTR			esxi-4.dorwinia.com.
+41		IN		PTR			idrac-esxi-1.dorwinia.com.
+42		IN		PTR			idrac-esxi-2.dorwinia.com.
+43		IN		PTR			idrac-esxi-3.dorwinia.com.
+44		IN		PTR			idrac-esxi-4.dorwinia.com.
 50		IN		PTR			config.dorwinia.com.
 51		IN		PTR			ans1.dorwinia.com.
 52		IN		PTR			ans2.dorwinia.com.
 61		IN		PTR			ident-1.dorwinia.com.
 62		IN		PTR			ident-2.dorwinia.com.
+99    IN    PTR     vcenter.dorwinia.com.
 100		IN		PTR			miniverse-2.dorwinia.com.
 101		IN		PTR			miniverse.dorwinia.com.
 102		IN		PTR			tinyverse.dorwinia.com.

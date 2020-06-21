@@ -3,7 +3,7 @@
 ;
 $TTL    604800
 @       IN      SOA     dns-1.dorwinia.com. root.dorwinia.com. (
-                            780         ; Serial
+                          62001         ; Serial
                          604800         ; Refresh
                           86400         ; Retry
                         2419200         ; Expire
@@ -31,10 +31,14 @@ dns-3.dorwinia.com.			IN	A	192.168.1.13
 dhcp-1.dorwinia.com.			IN	A	192.168.1.21
 dhcp-2.dorwinia.com.			IN	A	192.168.1.22
 voice.dorwinia.com.			IN	A	192.168.1.30
-idrac-miniverse-2.dorwinia.com.		IN	A	192.168.1.40
-idrac-miniverse.dorwinia.com.		IN	A	192.168.1.41
-idrac-tinyverse.dorwinia.com.		IN	A	192.168.1.42
-idrac-hyperverse.dorwinia.com.		IN	A	192.168.1.44
+esxi-1.dorwinia.com.      IN  A 192.168.1.31
+esxi-2.dorwinia.com.      IN  A 192.168.1.32
+esxi-3.dorwinia.com.      IN  A 192.168.1.33
+esxi-4.dorwinia.com.      IN  A 192.168.1.34
+idrac-esxi-1.dorwinia.com.		IN	A	192.168.1.41
+idrac-esxi-2.dorwinia.com.		IN	A	192.168.1.42
+idrac-esxi-3.dorwinia.com.		IN	A	192.168.1.43
+idrac-esxi-4.dorwinia.com.		IN	A	192.168.1.44
 config.dorwinia.com.			IN	A	192.168.1.50
 ans1.dorwinia.com.			IN	A	192.168.1.51
 ans2.dorwinia.com.			IN	A	192.168.1.52
