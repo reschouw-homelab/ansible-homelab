@@ -6,7 +6,7 @@
   become: yes
   become_user: root
   roles:
-    - users_config
+    - user_config
 
 # Install standard packages: ---------------------------
 #- name: Install standard packages

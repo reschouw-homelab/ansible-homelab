@@ -7,7 +7,7 @@
     name: sudo
     state: present
   tags:
-    - users
+    - user_config
 
 - name: add dorwin user
   user:
@@ -18,7 +18,7 @@
     append: yes
     state: present
   tags:
-    - users
+    - user_config
 
 # Copy user config files
 - name: Copy dorwin's config files
@@ -33,13 +33,16 @@
     - src: inputrc
       dest: /home/dorwin/.inputrc 
   tags:
-    - users
+    - user_config
 
 # Remove users
-- name: Remove automaton user
+- name: Remove disabled users
   user:
-    name: automaton
+    name: "{{ item }}"
     state: absent
     remove: true
+  with_items:
+    - automaton
+    - packer
   tags:
-    - users
+    - user_config
