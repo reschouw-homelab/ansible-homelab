@@ -1,7 +1,7 @@
 # Playbook to run tasks to maintain the whole environment
 
 - name: Common Configuration
-  hosts: cloud-init-test
+  hosts: localhost
   become: yes
   become_user: root
   roles:
