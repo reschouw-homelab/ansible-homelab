@@ -8,6 +8,7 @@ all:
       hosts:
         ans1.dorwinia.com:
         ans2.dorwinia.com:
+        terraform-test.dorwinia.com:
   
     mgmt:
       hosts:
