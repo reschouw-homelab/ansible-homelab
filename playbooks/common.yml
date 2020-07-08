@@ -1,26 +1,11 @@
-# Playbook to run tasks to maintain the whole environment
+# Generic playbook to create a very basic playbook
+# Designed to be able to run against any host
 
-# User config: ------------------------------------------
-- name: Configure users
+- name: Run common roles
   hosts: all
   become: yes
   become_user: root
   roles:
     - user_config
-
-# Install standard packages: ---------------------------
-
-- name: Install standard packages
-  hosts: all
-  become: yes
-  become_user: root
-  roles:
     - common_packages
-
-# Run various updates: ----------------------------------
-- name: Update System
-  hosts: all
-  become: yes
-  become_user: root
-  roles:
     - os_update

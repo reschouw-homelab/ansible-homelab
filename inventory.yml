@@ -58,3 +58,4 @@ all:
     games:
       hosts:
         craftbox.dorwinia.com:
+        module-test-[1:2].dorwinia.com:
