@@ -9,33 +9,18 @@
     - user_config
 
 # Install standard packages: ---------------------------
-#- name: Install standard packages
-#  hosts: all
-#  become: yes
-#  become_user: root
-#  roles:
-#    - snmp_install
 
 - name: Install standard packages
   hosts: all
   become: yes
   become_user: root
   roles:
-    - snmp_config
-    - rsyslog_config
+    - common_packages
 
 # Run various updates: ----------------------------------
-- name: Update OS'es
+- name: Update System
   hosts: all
   become: yes
   become_user: root
   roles:
     - os_update
-
-- name: Update PiHole
-  hosts: dns-3.dorwinia.com
-  become: yes
-  become_user: root
-  roles:
-    - pihole_update
-
