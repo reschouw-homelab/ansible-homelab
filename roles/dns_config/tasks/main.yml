@@ -99,7 +99,7 @@
   - name: Copy dynamic dns key
     when: primary == true
     copy:
-      src: /home/dorwin/files-dorwinia/dhcpupdate.key
+      src: dhcpupdate.key
       dest: /etc/bind/dhcpupdate.key
       owner: root
       group: bind
