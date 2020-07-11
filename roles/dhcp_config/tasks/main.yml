@@ -21,7 +21,7 @@
 
   - name: Copy dynamic dns key
     copy:
-      src: /home/dorwin/files-dorwinia/dhcpupdate.key
+      src: dhcpupdate.key
       dest: /etc/dhcp/dhcpupdate.key
       owner: root
       group: root
