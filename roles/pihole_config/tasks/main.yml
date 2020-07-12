@@ -19,6 +19,7 @@
     shell: "curl -L https://install.pi-hole.net | bash /dev/stdin --unattended"
     args:
       creates: /usr/local/bin/pihole
+      warn: false
     tags:
       - pihole_config
 
