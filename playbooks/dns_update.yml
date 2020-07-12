@@ -4,11 +4,15 @@
   become: yes
   become_user: root
   roles:
+    - user_config
     - dns_config
+    - common_packages
 
 - name: Update and reload PiHole on dns-3
   hosts: dns-3.dorwinia.com
   become: yes
   become_user: root
   roles:
-    - pihole_update
+    - user_config
+    - pihole_config
+    - common_packages

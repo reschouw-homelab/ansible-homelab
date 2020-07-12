@@ -1,0 +1,9 @@
+# Test playbook
+# Designed to be able to run against any host
+
+- name: Test playbook
+  hosts: ans1.dorwinia.com
+  become: yes
+  become_user: root
+  roles:
+    - pihole_config

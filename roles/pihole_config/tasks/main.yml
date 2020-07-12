@@ -1,0 +1,38 @@
+# Role to update PiHole and blocklists
+---
+
+  - name: Ensure /etc/pihole exists
+    file:
+      path: /etc/pihole
+      state: directory
+    tags:
+      - pihole_config
+
+  - name: Copy pihole setup vars
+    copy:
+      src: setupVars.conf
+      dest: /etc/pihole/setupVars.conf
+    tags:
+      - pihole_config
+
+  - name: Install Pihole
+    shell: "curl -L https://install.pi-hole.net | bash /dev/stdin --unattended"
+    args:
+      creates: /usr/local/bin/pihole
+    tags:
+      - pihole_config
+
+  - name: Update PiHole
+    command: pihole -up
+    tags:
+      - pihole_config
+
+  - name: Update PiHole blocklists
+    command: pihole -g
+    tags:
+      - pihole_config
+
+  - name: Restart PiHole DNS
+    command: pihole restartdns
+    tags: 
+      - pihole_config
