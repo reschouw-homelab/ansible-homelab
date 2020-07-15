@@ -5,4 +5,4 @@
   roles:
     - user_config
     - dhcp_config
-    - common-packages
+    - common_packages
