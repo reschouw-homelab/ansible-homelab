@@ -55,7 +55,7 @@ unifibox.dorwinia.com.			IN	A	192.168.1.132
 wikibox.dorwinia.com.			IN	A	192.168.1.140
 craftbox.dorwinia.com.			IN	A	192.168.1.143
 gitbox.dorwinia.com.			IN	A	192.168.1.144
-roxybox.dorwinia.com.			IN	A	192.168.1.145
+nginx.dorwinia.com.			IN	A	192.168.1.145
 libre.dorwinia.com.			IN	A	192.168.1.146
 plex.dorwinia.com.			IN	A	192.168.1.147
 syslog.dorwinia.com.			IN	A	192.168.1.148

@@ -42,7 +42,7 @@ all:
 
     nginx:
       hosts:
-        roxybox.dorwinia.com:
+        nginx.dorwinia.com:
 
     prod:
       hosts:
