@@ -8,7 +8,7 @@
       update_cache: true
       cache_valid_time: 3600
     tags:
-      - nginx
+      - nginx_config
 
   # Install Certbot 
   - name: Add repository
@@ -22,7 +22,7 @@
       update_cache: true
       cache_valid_time: 3600
     tags:
-      - nginx
+      - nginx_config
 
   - name: Install Certbot Nginx module
     apt:
@@ -31,7 +31,7 @@
       update_cache: true
       cache_valid_time: 3600
     tags:
-      - nginx
+      - nginx_config
 
   # Copy Configuration Files
   - name: Copy dorwinia.conf
@@ -42,7 +42,7 @@
       group: root
       mode: 0600
     tags:
-      - nginx
+      - nginx_config
       
   - name: Copy index file
     copy:
@@ -52,7 +52,7 @@
       group: root
       mode: 0755
     tags:
-      - nginx
+      - nginx_config
 
   # Restart nginx
   - name: Restart nginx service
@@ -60,4 +60,4 @@
       name: nginx
       state: restarted
     tags:
-      - nginx
+      - nginx_config

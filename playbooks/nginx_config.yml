@@ -1,6 +1,8 @@
 - name: Install and configure nginx
-  hosts: nginx
+  hosts: nginx.dorwinia.com
   become: yes
   become_user: root
   roles:
+    - user_config
+    - common_packages
     - nginx_config
