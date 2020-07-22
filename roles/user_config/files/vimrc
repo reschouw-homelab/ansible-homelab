@@ -1,14 +1,22 @@
 " .vimrc
 " Ryan Schouweieler
 
-" Mark current line with underline
+" Basic visual indicators
 set cursorline
+set number
+
+" Tab settings
+set textwidth=0 nosmartindent tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 " Start scrolling near screen boundaries
 set so=3
 
-" Turn on auto-indentation based on filetype
-"if has("autocmd")
-"filetype plugin indent on
-"endif
+" Turn off annoying ding sound
+set visualbell
 
+" Folding Settings
+set foldmethod=indent
+set foldlevel=10
+
+" Enable using modelines
+set modeline
