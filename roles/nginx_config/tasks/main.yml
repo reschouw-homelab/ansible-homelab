@@ -54,6 +54,16 @@
     tags:
       - nginx_config
   
+  - name: Copy resume
+    copy:
+      src: resume.pdf
+      dest: /var/www/html/resume.pdf
+      owner: root
+      group: root
+      mode: 0755
+    tags:
+      - nginx_config
+
   # Certbot configuration
   - name: Acquire/Update cert and ensure config is installed
     shell:
