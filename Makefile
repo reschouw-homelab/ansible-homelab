@@ -7,7 +7,7 @@ $(ENV):
 	$(PIP) install --upgrade pip3 setuptools
 
 deps: $(ENV) ## sets up the environment (python3.6 required)
-	$(PIP) install ansible
+	$(PIP) install --upgrade -r requirements.txt
 
 clean: ## clears out the python environment in repo
 	rm -rf $(ENV)
