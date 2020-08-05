@@ -2,9 +2,12 @@ PYTHON := $(shell which python3)
 ENV := $(CURDIR)/env
 PIP := $(ENV)/bin/pip
 
-$(ENV):
+help:
+	@printf "\033[0;32mWelcome the the Dorwinia ansible repo!\n"
+	@printf "\033[0;32mmake env, source env/bin/activate, make deps\n"
+
+env:
 	$(PYTHON) -m venv env
-	$(PIP) install --upgrade pip3 setuptools
 
 deps: $(ENV) ## sets up the environment (python3.6 required)
 	$(PIP) install --upgrade -r requirements.txt
