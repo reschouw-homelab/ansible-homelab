@@ -12,7 +12,7 @@
 - name: add dorwin user
   user:
     name: dorwin
-    password: ***REMOVED***
+    password: '{{ dorwin_password }}'
     groups: sudo
     shell: /bin/bash
     append: yes
