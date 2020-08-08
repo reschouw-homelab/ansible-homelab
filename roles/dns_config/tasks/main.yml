@@ -24,16 +24,6 @@
       dest: /etc/bind/named.conf.options
     - src: db.dorwinia.com
       dest: /var/lib/bind/db.dorwinia.com
-    - src: db.local.dorwinia.com
-      dest: /var/lib/bind/db.local.dorwinia.com
-    - src: db.guest.dorwinia.com
-      dest: /var/lib/bind/db.guest.dorwinia.com
-    - src: db.192
-      dest: /var/lib/bind/db.192
-    - src: db.40.0.10
-      dest: /var/lib/bind/db.40.0.10
-    - src: db.50.0.10
-      dest: /var/lib/bind/db.50.0.10
   tags:
     - dns
 
