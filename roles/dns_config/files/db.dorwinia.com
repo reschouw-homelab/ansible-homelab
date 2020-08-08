@@ -3,16 +3,17 @@
 ;
 $TTL    604800
 @       IN      SOA     dns-1.dorwinia.com. root.dorwinia.com. (
-                          62001         ; Serial
-                         604800         ; Refresh
-                          86400         ; Retry
-                        2419200         ; Expire
-                         604800 )       ; Negative Cache TTL
+                           8000         ; Serial
+                             60         ; Refresh
+                            120         ; Retry
+                          86400         ; Expire
+                             30         ; Negative Cache TTL
+)
 
 @		IN      NS      dns-1.dorwinia.com.
 dns-1		IN	A       192.168.1.11
 @		IN      NS      dns-2.dorwinia.com.
-dns-2		IN	A	192.168.1.12
+dns-2		IN	A	      192.168.1.12
 
 ; Public WAN Records: -----------------------------------------------------
 

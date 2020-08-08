@@ -1,139 +1,47 @@
 # Role to configure Bind9 to be Primary Master
 ---
 # Install Bind9
-  - name: Install Bind9
-    apt:
-      name: bind9
-      state: present
-      update_cache: yes
-    tags:
-      - dns
+- name: Install Bind9
+  apt:
+    name: bind9
+    state: present
+    update_cache: yes
+  tags:
+    - dns
 
 # Copy configuration files
-  - name: Copy named.conf
-    template:
-      src: named.conf.j2
+- name: Copy Configuration files
+  copy:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    owner: root
+    group: bind
+    mode: 0644
+  with_items:
+    - src: named.conf
       dest: /etc/bind/named.conf
-      owner: root
-      group: bind
-      mode: 0644
-    tags:
-      - dns
-
-  - name: Copy named.conf.options
-    copy:
-      src: named.conf.options
+    - src: named.conf.options
       dest: /etc/bind/named.conf.options
-      owner: root
-      group: bind
-      mode: 0644
-    tags:
-      - dns
-
-  - name: Copy db.dorwinia.com
-    when: primary == true
-    copy:
-      src: db.dorwinia.com
+    - src: db.dorwinia.com
       dest: /var/lib/bind/db.dorwinia.com
-      owner: root
-      group: bind
-      mode: 0644
-    tags:
-      - dns
-
-  - name: Copy db.local.dorwinia.com
-    when: primary == true
-    copy:
-      src: db.local.dorwinia.com
+    - src: db.local.dorwinia.com
       dest: /var/lib/bind/db.local.dorwinia.com
-      owner: root
-      group: bind
-      mode: 0644
-    tags:
-      - dns
-  
-  - name: Copy db.guest.dorwinia.com
-    when: primary == true
-    copy:
-      src: db.guest.dorwinia.com
+    - src: db.guest.dorwinia.com
       dest: /var/lib/bind/db.guest.dorwinia.com
-      owner: root
-      group: bind
-      mode: 0644
-    tags:
-      - dns
-
-  - name: Copy db.192
-    when: primary == true
-    copy:
-      src: db.192
+    - src: db.192
       dest: /var/lib/bind/db.192
-      owner: root
-      group: bind
-      mode: 0644
-    tags:
-      - dns
-
-  - name: Copy db.40.0.10
-    when: primary == true
-    copy:
-      src: db.40.0.10
+    - src: db.40.0.10
       dest: /var/lib/bind/db.40.0.10
-      owner: root
-      group: bind
-      mode: 0644
-    tags:
-      - dns
-
-  - name: Copy db.50.0.10
-    when: primary == true
-    copy:
-      src: db.50.0.10
+    - src: db.50.0.10
       dest: /var/lib/bind/db.50.0.10
-      owner: root
-      group: bind
-      mode: 0644
-    tags:
-      - dns
-
-  - name: Copy dynamic dns key
-    when: primary == true
-    copy:
-      src: dhcpupdate.key
-      dest: /etc/bind/dhcpupdate.key
-      owner: root
-      group: bind
-      mode: 0640
-    tags:
-      - dns
-
-#  - name: Ensure db.dorwinia.com.jnl file exists
-#    file:
-#      path: /etc/bind/db.dorwinia.com.jnl
-#      force: no
-#      owner: bind
-#      group: bind
-#      mode: 0660
-#      state: touch
-#    tags:
-#      - dns
-
-#  - name: Ensure db.192.jnl file exists
-#    file:
-#      path: /etc/bind/db.192.jnl
-#      force: no
-#      owner: bind
-#      group: bind
-#      mode: 0660
-#      state: touch
-#    tags:
-#      - dns
+  tags:
+    - dns
 
 # Restart Bind9
-  - name: Restart Bind9
-    service:
-      name: bind9
-      state: restarted
-    tags:
-      - dns
+- name: Restart Bind9
+  service:
+    name: bind9
+    state: restarted
+  tags:
+    - dns
 
