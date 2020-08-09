@@ -14,7 +14,7 @@ all:
       hosts:
         config.dorwinia.com:
         libre.dorwinia.com:
-        syslog.dorwinia.com:
+        graylog.dorwinia.com:
         netbox.dorwinia.com:
 
     dns:

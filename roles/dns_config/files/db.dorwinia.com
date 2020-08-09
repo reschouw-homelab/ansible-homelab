@@ -59,6 +59,6 @@ git.dorwinia.com.			IN	A	192.168.1.144
 nginx.dorwinia.com.			IN	A	192.168.1.145
 libre.dorwinia.com.			IN	A	192.168.1.146
 plex.dorwinia.com.			IN	A	192.168.1.147
-syslog.dorwinia.com.			IN	A	192.168.1.148
+graylog.dorwinia.com.			IN	A	192.168.1.148
 netbox.dorwinia.com.			IN	A	192.168.1.149
 wordpress.dorwinia.com.			IN	A	192.168.1.150
