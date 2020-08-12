@@ -1,30 +1,26 @@
 all:
   vars:
     location: Virtual
-    contact: dorwin@dorwinia.com
+    contact: ryan@dorwinia.com
+    ansible_python_interpreter: /usr/bin/python3
   children:
 
     test:
       hosts:
         ans1.dorwinia.com:
         ans2.dorwinia.com:
-        terraform-test.dorwinia.com:
   
     mgmt:
       hosts:
         config.dorwinia.com:
-        libre.dorwinia.com:
         graylog.dorwinia.com:
-        netbox.dorwinia.com:
 
     dns:
       hosts:
         dns-1.dorwinia.com:
           ansible-host: 192.168.1.11
-          primary: true
         dns-2.dorwinia.com:
           ansible-host: 192.168.1.12
-          primary: false
         dns-3.dorwinia.com:
           ansible-host: 192.168.1.13
 
@@ -35,27 +31,7 @@ all:
         dhcp-2.dorwinia.com:
           primary: false
 
-    ident:
-      hosts:
-        ident-1.dorwinia.com:
-        ident-2.dorwinia.com:
-
-    nginx:
-      hosts:
-        nginx.dorwinia.com:
-
     prod:
       hosts:
+        nginx.dorwinia.com:
         git.dorwinia.com:
-        wikibox.dorwinia.com:
-        plex.dorwinia.com:
-        wordpress.dorwinia.com:
-
-    voice:
-      hosts:
-        voice.dorwinia.com:
-
-    games:
-      hosts:
-        craftbox.dorwinia.com:
-        module-test-[1:2].dorwinia.com:
