@@ -53,6 +53,7 @@
       mode: 0755
     tags:
       - nginx_config
+      - nginx_content
   
   - name: Copy resume
     copy:
@@ -63,6 +64,7 @@
       mode: 0755
     tags:
       - nginx_config
+      - nginx_content
 
   # Certbot configuration
   - name: Acquire/Update cert and ensure config is installed
