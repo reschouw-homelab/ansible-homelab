@@ -67,7 +67,7 @@
   # Certbot configuration
   - name: Acquire/Update cert and ensure config is installed
     shell:
-      cmd: certbot --nginx --non-interactive --redirect --agree-tos -m ryan@dorwinia.com -d dorwinia.com -d gitlab.dorwinia.com -d wiki.dorwinia.com -d test.dorwinia.com
+      cmd: certbot --nginx --non-interactive --redirect --agree-tos -m ryan@dorwinia.com -d dorwinia.com -d gitlab.dorwinia.com -d test.dorwinia.com
     tags: 
       - nginx_config
 
@@ -75,7 +75,7 @@
     cron:
       name: Certbot command
       hour: "0"
-      job: certbot --nginx --non-interactive --redirect --agree-tos -m ryan@dorwinia.com -d dorwinia.com -d gitlab.dorwinia.com -d wiki.dorwinia.com -d test.dorwinia.com
+      job: certbot --nginx --non-interactive --redirect --agree-tos -m ryan@dorwinia.com -d dorwinia.com -d gitlab.dorwinia.com -d test.dorwinia.com
     tags:
       - nginx_config
   
