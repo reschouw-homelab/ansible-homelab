@@ -1,0 +1,10 @@
+[Interface]
+# Configuration for the server
+Address = 10.222.0.1/24
+ListenPort = 51820
+PrivateKey = {{ vmware_private }}
+
+[Peer]
+PublicKey = {{ aws_public }}
+AllowedIPs = 10.222.0.0/24
+PersistentKeepalive = 25

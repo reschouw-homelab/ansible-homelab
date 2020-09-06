@@ -1,0 +1,29 @@
+---
+
+- name: Install wireguard
+  apt:
+    name: wireguard
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+  tags:
+    - wireguard
+
+- name: Upload wireguard-1 config file
+  when: primary
+  notify: reload_wireguard
+  template:
+    src: wireguard-1-wg0.conf.j2
+    dest: /etc/wireguard/wg0.conf
+  tags:
+    - wireguard
+
+- name: Upload wireguard-2 config file
+  when: not primary
+  notify: reload_wireguard
+  template:
+    src: wireguard-2-wg0.conf.j2
+    dest: /etc/wireguard/wg0.conf
+  tags:
+    - wireguard
+

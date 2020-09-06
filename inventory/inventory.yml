@@ -31,6 +31,13 @@ all:
         dhcp-2.dorwinia.com:
           primary: false
 
+    wireguard:
+      hosts:
+        wireguard-1.dorwinia.com:
+          primary: true
+        wireguard-2.dorwinia.com:
+          primary: false
+
     prod:
       hosts:
         nginx.dorwinia.com:

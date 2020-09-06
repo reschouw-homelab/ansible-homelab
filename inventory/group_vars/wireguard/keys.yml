@@ -1,0 +1,5 @@
+vmware_private: "{{ (lookup('aws_secret', 'wireguard-keys') | from_json).vmware_private }}"
+vmware_public: "{{ (lookup('aws_secret', 'wireguard-keys') | from_json).vmware_public }}"
+aws_private: "{{ (lookup('aws_secret', 'wireguard-keys') | from_json).aws_private }}"
+aws_public: "{{ (lookup('aws_secret', 'wireguard-keys') | from_json).aws_public }}"
+

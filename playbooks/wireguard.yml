@@ -1,0 +1,11 @@
+# Generic playbook to create a very basic playbook
+# Designed to be able to run against any host
+
+- name: Install and setup Wireguard Site-to-Site VPN
+  hosts: wireguard
+  become: yes
+  become_user: root
+  roles:
+    - user_config
+    - rsyslog_config
+    - wireguard
