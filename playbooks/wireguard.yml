@@ -2,6 +2,7 @@
 # Designed to be able to run against any host
 
 - name: Install and setup Wireguard Site-to-Site VPN
+  gather_facts: no
   hosts: wireguard
   become: yes
   become_user: root

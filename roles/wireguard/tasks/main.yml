@@ -9,6 +9,29 @@
   tags:
     - wireguard
 
+- name: Check if IP forwarding is enabled
+  command: sysctl net.ipv4.ip_forward
+  register: forwarding_state
+  changed_when: False
+  tags:
+    - wireguard
+
+- name: Enable IP forwarding if needed
+  command: sysctl net.ipv4.ip_forward=1
+  when: forwarding_state.stdout == "net.ipv4.ip_forward = 0"
+  tags:
+    - wireguard
+
+- name: Upload sysctl.conf to keep IP forwarding persistent
+  copy:
+    src: sysctl.conf
+    dest: /etc/sysctl.conf
+    mode: 0644
+    owner: root
+    group: root
+  tags:
+    - wireguard
+
 - name: Upload wireguard-1 config file
   when: primary
   notify: reload_wireguard
@@ -27,3 +50,9 @@
   tags:
     - wireguard
 
+- name: Activate links on boot
+  systemd:
+    name: wg-quick@wg0
+    enabled: yes
+  tags:
+    - wireguard
