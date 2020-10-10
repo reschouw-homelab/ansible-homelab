@@ -42,3 +42,4 @@ all:
       hosts:
         nginx.dorwinia.com:
         git.dorwinia.com:
+        plex.dorwinia.com:
