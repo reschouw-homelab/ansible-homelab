@@ -4,5 +4,4 @@
   become_user: root
   roles:
     - user_config
-    - common_packages
     - nginx_config
