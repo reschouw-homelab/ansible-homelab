@@ -15,18 +15,11 @@
     apt_repository:
             repo: ppa:certbot/certbot
 
-  - name: Install Certbot
+  - name: Install Certbot and plugins
     apt:
-      name: certbot
-      state: present
-      update_cache: true
-      cache_valid_time: 3600
-    tags:
-      - nginx_config
-
-  - name: Install Certbot Nginx module
-    apt:
-      name: python-certbot-nginx
+      name: 
+        - python3-certbot
+        - python3-certbot-nginx
       state: present
       update_cache: true
       cache_valid_time: 3600
