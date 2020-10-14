@@ -27,15 +27,15 @@
       - nginx_config
 
   # Copy Configuration Files
- # - name: Copy dorwinia.conf
- #   copy:
- #     src: dorwinia.conf
- #     dest: /etc/nginx/conf.d/dorwinia.conf
- #     owner: root
- #     group: root
- #     mode: 0600
- #   tags:
- #     - nginx_config
+  - name: Copy dorwinia.conf
+    copy:
+      src: dorwinia.conf
+      dest: /etc/nginx/conf.d/dorwinia.conf
+      owner: root
+      group: root
+      mode: 0600
+    tags:
+      - nginx_config
       
   - name: Copy index file
     copy:
