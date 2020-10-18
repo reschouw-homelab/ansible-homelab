@@ -4,10 +4,3 @@
   become_user: root
   roles:
     - os_update
-
-- name: Update PiHole
-  hosts: dns-3.dorwinia.com
-  become: yes
-  become_user: root
-  roles:
-    - pihole_update
