@@ -6,7 +6,7 @@
   become: yes
   become_user: root
   roles:
-    - user_config
+    - users
     - rsyslog_config
     - common_packages
     - os_update

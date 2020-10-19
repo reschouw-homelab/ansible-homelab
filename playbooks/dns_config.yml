@@ -4,7 +4,7 @@
   become: yes
   become_user: root
   roles:
-    - user_config
+    - users
     - dns_config
     - common_packages
 
@@ -13,6 +13,6 @@
   become: yes
   become_user: root
   roles:
-    - user_config
+    - users
     - pihole_config
     - common_packages
