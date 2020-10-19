@@ -8,7 +8,7 @@
       update_cache: true
       cache_valid_time: 3600
     tags:
-      - nginx_config
+      - nginx
 
   # Install Certbot 
   - name: Add repository
@@ -24,7 +24,7 @@
       update_cache: true
       cache_valid_time: 3600
     tags:
-      - nginx_config
+      - nginx
 
   # Copy Configuration Files
   - name: Copy dorwinia.conf
@@ -35,7 +35,7 @@
       group: root
       mode: 0600
     tags:
-      - nginx_config
+      - nginx
       
   - name: Copy index file
     copy:
@@ -45,7 +45,7 @@
       group: root
       mode: 0755
     tags:
-      - nginx_config
+      - nginx
       - nginx_content
   
   - name: Copy resume
@@ -56,7 +56,7 @@
       group: root
       mode: 0755
     tags:
-      - nginx_config
+      - nginx
       - nginx_content
 
   # Certbot configuration
@@ -64,7 +64,7 @@
     shell:
       cmd: certbot --nginx --non-interactive --redirect --agree-tos -m ryan@dorwinia.com -d dorwinia.com -d gitlab.dorwinia.com -d test.dorwinia.com
     tags: 
-      - nginx_config
+      - nginx
 
   - name: Install cron job
     cron:
@@ -72,7 +72,7 @@
       hour: "0"
       job: certbot --nginx --non-interactive --redirect --agree-tos -m ryan@dorwinia.com -d dorwinia.com -d gitlab.dorwinia.com -d test.dorwinia.com
     tags:
-      - nginx_config
+      - nginx
   
   # Restart nginx
   - name: Restart nginx service
@@ -80,4 +80,4 @@
       name: nginx
       state: restarted
     tags:
-      - nginx_config
+      - nginx
