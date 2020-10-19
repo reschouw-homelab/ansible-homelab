@@ -172,7 +172,7 @@ git_color() {
     elif [[ -n $needs_push ]]; then
         echo -e '\033[1;34m' # bold blue
     else
-        echo -e '\033[1;32m'  # bold white
+        echo -e '\033[1;37m'  # bold white
     fi
 }
 
