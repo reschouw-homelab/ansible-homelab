@@ -7,6 +7,5 @@
   become: yes
   become_user: root
   roles:
-    - user_config
-    - rsyslog_config
+    - user
     - wireguard

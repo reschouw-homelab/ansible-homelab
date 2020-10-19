@@ -7,6 +7,6 @@
   become_user: root
   roles:
     - users
-    - rsyslog_config
+    - rsyslog
     - common_packages
     - os_update
