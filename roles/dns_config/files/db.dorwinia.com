@@ -40,8 +40,8 @@ idrac-esxi-2.dorwinia.com.		IN	A	192.168.1.42
 idrac-esxi-3.dorwinia.com.		IN	A	192.168.1.43
 idrac-esxi-4.dorwinia.com.		IN	A	192.168.1.44
 config.dorwinia.com.			IN	A	192.168.1.50
-ans1.dorwinia.com.			IN	A	192.168.1.51
-ans2.dorwinia.com.			IN	A	192.168.1.52
+ans-1.dorwinia.com.			IN	A	192.168.1.51
+ans-2.dorwinia.com.			IN	A	192.168.1.52
 wireguard-1.dorwinia.com.			IN	A	192.168.1.61
 vcenter.dorwinia.com.			IN	A	192.168.1.99
 singularity.dorwinia.com.		IN	A	192.168.1.111
