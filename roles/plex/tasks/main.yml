@@ -5,11 +5,15 @@
     apt_repository:
       repo: 'deb https://downloads.plex.tv/repo/deb/ public main'
       state: present
+    tags:
+      - plex
 
   - name: Add repository key
     apt_key:
       url: https://downloads.plex.tv/plex-keys/PlexSign.key
       state: present
+    tags:
+      - plex
 
 #  - name: Update cache
 #    apt:
@@ -24,3 +28,5 @@
       allow_unauthenticated: yes
       update_cache: true
       cache_valid_time: 3600
+    tags:
+      - plex
