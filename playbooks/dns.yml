@@ -14,5 +14,5 @@
   become_user: root
   roles:
     - users
-    - pihole_config
+    - pihole
     - common_packages
