@@ -5,5 +5,5 @@
   become: yes
   become_user: root
   roles:
-    - user_config
+    - user
     - common_packages

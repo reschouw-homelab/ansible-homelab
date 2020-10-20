@@ -5,7 +5,7 @@
   become_user: root
   roles:
     - users
-    - dns_config
+    - dns
     - common_packages
 
 - name: Update and reload PiHole on dns-3

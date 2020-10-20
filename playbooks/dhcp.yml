@@ -3,6 +3,6 @@
   become: yes
   become_user: root
   roles:
-    - user_config
-    - dhcp_config
+    - user
+    - dhcp
     - common_packages
