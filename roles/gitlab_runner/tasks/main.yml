@@ -14,6 +14,16 @@
   tags:
     - gitlab_runner
 
+- name: Upload Runner Config File
+  template:
+    src: config.toml.j2
+    dest: /etc/gitlab-runner/config.toml
+    owner: root
+    group: root
+    mode: 0600
+  tags:
+    - gitlab_runner
+
 - name: Install Docker GPG Key
   apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg
