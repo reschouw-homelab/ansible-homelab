@@ -1,5 +1,6 @@
 #ignore vim .swp files
 *.swp
+*.swo
 
 #virtualenv
 env/*
