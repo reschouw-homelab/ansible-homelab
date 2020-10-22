@@ -1,0 +1,15 @@
+- name: Register Runner
+  shell: |
+    sudo gitlab-runner register \
+    --non-interactive \
+    --url "http://git.dorwinia.com/" \
+    --registration-token "GXZAHcFzJQU4GFsokvko" \
+    --executor "docker" \
+    --docker-image ubuntu:latest \
+    --description "{{ inventory_hostname }}" \
+    --tag-list "docker" \
+    --run-untagged="true" \
+    --locked="false" \
+    --access-level="not_protected"
+  tags:
+    - gitlab_runner

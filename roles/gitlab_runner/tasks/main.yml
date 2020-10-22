@@ -6,22 +6,10 @@
     - gitlab_runner
 
 - name: Install gitlab-runner package
-  shell: export GITLAB_RUNNER_DISABLE_SKEL=true; sudo -E apt-get install gitlab-runner
-  tags:
-    - gitlab_runner
-
-- name: Register runner
-  shell: |
-    sudo gitlab-runner register \
-    --non-interactive \
-    --url "http://git.dorwinia.com/" \
-    --registration-token "GXZAHcFzJQU4GFsokvko" \
-    --executor "docker" \
-    --docker-image ubuntu:latest \
-    --description "{{ inventory_hostname }}" \
-    --tag-list "docker" \
-    --run-untagged="true" \
-    --locked="false" \
-    --access-level="not_protected"
+  apt:
+    name: gitlab-runner
+    state: present
+  notify:
+    - Register Runner
   tags:
     - gitlab_runner
