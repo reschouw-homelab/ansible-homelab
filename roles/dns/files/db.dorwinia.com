@@ -43,10 +43,12 @@ config.dorwinia.com.			IN	A	192.168.1.50
 ans-1.dorwinia.com.			IN	A	192.168.1.51
 ans-2.dorwinia.com.			IN	A	192.168.1.52
 wireguard-1.dorwinia.com.			IN	A	192.168.1.61
+git.dorwinia.com.			IN	A	192.168.1.70
+gitlab-runner-1.dorwinia.com.			IN	A	192.168.1.71
+gitlab-runner-2.dorwinia.com.			IN	A	192.168.1.72
 vcenter.dorwinia.com.			IN	A	192.168.1.99
 singularity.dorwinia.com.		IN	A	192.168.1.111
 unifibox.dorwinia.com.			IN	A	192.168.1.132
-git.dorwinia.com.			IN	A	192.168.1.144
 nginx.dorwinia.com.			IN	A	192.168.1.145
 plex.dorwinia.com.			IN	A	192.168.1.147
 graylog.dorwinia.com.			IN	A	192.168.1.148

@@ -37,6 +37,11 @@ all:
           primary: true
         wireguard-2.dorwinia.com:
           primary: false
+    
+    gitlab-runners:
+      hosts:
+        gitlab-runner-1.dorwinia.com:
+        gitlab-runner-2.dorwinia.com:
 
     prod:
       hosts:
