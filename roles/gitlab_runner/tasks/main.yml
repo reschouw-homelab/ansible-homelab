@@ -13,3 +13,24 @@
     - Register Runner
   tags:
     - gitlab_runner
+
+- name: Install Docker GPG Key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+  tags:
+    - gitlab_runner
+
+- name: Install Docker Repo
+  apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
+    state: present
+  tags:
+    - gitlab_runner
+
+- name: Install Docker
+  apt:
+    name: ['docker-ce', 'docker-ce-cli', 'containerd.io']
+    update_cache: yes
+  tags:
+    - gitlab_runner
