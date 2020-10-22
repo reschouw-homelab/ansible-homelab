@@ -1,7 +1,8 @@
 - name: Install and configure gitlab runners
-  hosts: gitlab-runners
+  hosts: gitlab_runners
   become: yes
   become_user: root
   roles:
     - users
-    - gitlab-runner
+    - gitlab_runner
+    - common_packages
