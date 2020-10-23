@@ -14,13 +14,32 @@
   tags:
     - gitlab_runner
 
-- name: Upload Runner Config File
-  template:
-    src: config.toml.j2
-    dest: /etc/gitlab-runner/config.toml
-    owner: root
-    group: root
-    mode: 0600
+- name: Set Runner Name
+  lineinfile:
+    path: /etc/gitlab-runner/config.toml
+    regexp: '^  name = ".*"'
+    line: '  name = "{{ inventory_hostname }}"'
+    state: present
+  tags:
+    - gitlab_runner
+
+- name: Set clone_url
+  lineinfile:
+    path: /etc/gitlab-runner/config.toml
+    regex: '^  clone_url = ".*"'
+    line: '  clone_url = "https://gitlab.dorwinia.com/"'
+    state: present
+    insertafter: '^  url = "https://gitlab.dorwinia.com/"'
+  tags:
+    - gitlab_runner
+
+- name: Use local Docker for Docker In Docker
+  lineinfile:
+    path: /etc/gitlab-runner/config.toml
+    regex: '^    volumes = [.*]'
+    line: '    volumes = ["/var/run/docker.sock:/var/run/docker.sock", "/cache"]'
+    state: present
+    insertafter: '^    disable_cache = false'
   tags:
     - gitlab_runner
 
