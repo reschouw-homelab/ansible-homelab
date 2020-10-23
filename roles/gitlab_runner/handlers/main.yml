@@ -2,7 +2,7 @@
   shell: |
     sudo gitlab-runner register \
     --non-interactive \
-    --url "http://git.dorwinia.com/" \
+    --url "https://gitlab.dorwinia.com/" \
     --registration-token "GXZAHcFzJQU4GFsokvko" \
     --executor "docker" \
     --docker-image ubuntu:latest \
