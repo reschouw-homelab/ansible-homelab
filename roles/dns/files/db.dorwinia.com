@@ -19,7 +19,6 @@ dns-2		IN	A	      192.168.1.12
 
 dorwinia.com.				IN	A	192.168.1.145
 test.dorwinia.com.			IN	A	192.168.1.145
-gitlab.dorwinia.com.			IN	A	192.168.1.145
 wireguard-2.dorwinia.com.			IN	A	54.191.140.248
 
 ; Device A Records: -------------------------------------------------------
@@ -43,6 +42,7 @@ config.dorwinia.com.			IN	A	192.168.1.50
 ans-1.dorwinia.com.			IN	A	192.168.1.51
 ans-2.dorwinia.com.			IN	A	192.168.1.52
 wireguard-1.dorwinia.com.			IN	A	192.168.1.61
+gitlab.dorwinia.com.			IN	A	192.168.1.70
 git.dorwinia.com.			IN	A	192.168.1.70
 gitlab-runner-1.dorwinia.com.			IN	A	192.168.1.71
 gitlab-runner-2.dorwinia.com.			IN	A	192.168.1.72

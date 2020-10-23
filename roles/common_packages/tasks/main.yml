@@ -1,21 +1,35 @@
 # Role to nstall common packages
 ---
-  - name: Install Packages
-    apt:
-      name: "{{ item }}"
-      state: present
-      update_cache: yes
-    loop:
-      - tree
-      - vim
-      - sl
-      - nmap
-      - tmux
-      - htop
-      - curl
-      - wget
-      - unzip
-      - traceroute
-      - rsync
-    tags:
-      - common_packages
+- name: Install Packages
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  loop:
+    - tree
+    - vim
+    - sl
+    - nmap
+    - tmux
+    - htop
+    - curl
+    - wget
+    - unzip
+    - traceroute
+    - rsync
+  tags:
+    - common_packages
+
+- name: Remove cloud-init
+  apt:
+    name: cloud-init
+    state: absent
+  tags:
+    - common_packages
+
+- name: Remove cloud-init Netplan File
+  file:
+    path: /etc/netplan/50-cloud-init.yaml
+    state: absent
+  tags:
+    - common_packages
