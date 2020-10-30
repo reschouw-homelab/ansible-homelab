@@ -43,6 +43,17 @@ all:
         gitlab-runner-1.dorwinia.com:
         gitlab-runner-2.dorwinia.com:
 
+    kubernetes:
+      children:
+        kube_controller:
+          hosts:
+            kube-controller-1.dorwinia.com:
+        kube_worker:
+          hosts:
+            kube-worker-1.dorwinia.com:
+            kube-worker-2.dorwinia.com:
+            kube-worker-3.dorwinia.com:
+
     prod:
       hosts:
         nginx.dorwinia.com:

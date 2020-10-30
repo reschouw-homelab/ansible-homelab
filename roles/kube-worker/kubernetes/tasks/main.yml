@@ -1,0 +1,36 @@
+- name: Install Google GPG Key
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
+  tags:
+    - kubernetes
+    - kube-controller
+    - kube-worker
+
+- name: Install Kubernetes Repo
+  apt_repository:
+    repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
+    state: present
+  tags:
+    - kubernetes
+    - kube-controller
+    - kube-worker
+
+- name: Install Kubernetes Packages
+  apt:
+    name: ['kubelet', 'kubeadm', 'kubectl']
+    update_cache: yes
+    state: present
+  tags:
+    - kubernetes
+    - kube-controller
+    - kube-worker
+
+- name: Prevent Unintended Upgrades to Kubernetes
+  dpkg_selections:
+    name: ['kubelet', 'kubeadm', 'kubectl']
+    selection: hold
+  tags:
+    - kubernetes
+    - kube-controller
+    - kube-worker
