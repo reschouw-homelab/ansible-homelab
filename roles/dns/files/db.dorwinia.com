@@ -56,6 +56,7 @@ git.dorwinia.com.			IN	A	192.168.1.70
 gitlab-runner-1.dorwinia.com.			IN	A	192.168.1.71
 gitlab-runner-2.dorwinia.com.			IN	A	192.168.1.72
 
+kube-cluster.dorwinia.com.      IN  A 192.168.1.80
 kube-controller-1.dorwinia.com.      IN  A 192.168.1.80
 kube-worker-1.dorwinia.com.       IN  A 192.168.1.83
 kube-worker-2.dorwinia.com.       IN  A 192.168.1.84

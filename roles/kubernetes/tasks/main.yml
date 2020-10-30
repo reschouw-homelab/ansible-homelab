@@ -28,8 +28,12 @@
 
 - name: Prevent Unintended Upgrades to Kubernetes
   dpkg_selections:
-    name: ['kubelet', 'kubeadm', 'kubectl']
+    name: "{{ item }}"
     selection: hold
+  loop:
+    - kubelet
+    - kubeadm
+    - kubectl
   tags:
     - kubernetes
     - kube_controller

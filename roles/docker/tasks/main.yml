@@ -4,6 +4,9 @@
     state: present
   tags:
     - gitlab_runner
+    - kubernetes
+    - kube_controller
+    - kube_worker
 
 - name: Install Docker Repo
   apt_repository:
@@ -11,6 +14,9 @@
     state: present
   tags:
     - gitlab_runner
+    - kubernetes
+    - kube_controller
+    - kube_worker
 
 - name: Install Docker
   apt:
@@ -18,3 +24,6 @@
     update_cache: yes
   tags:
     - gitlab_runner
+    - kubernetes
+    - kube_controller
+    - kube_worker
