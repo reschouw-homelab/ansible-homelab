@@ -68,3 +68,4 @@ unifibox.dorwinia.com.			IN	A	192.168.1.132
 nginx.dorwinia.com.			IN	A	192.168.1.145
 plex.dorwinia.com.			IN	A	192.168.1.147
 graylog.dorwinia.com.			IN	A	192.168.1.148
+lmmv.dorwinia.com.			IN	A	192.168.1.149
