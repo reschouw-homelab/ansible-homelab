@@ -27,16 +27,19 @@ all:
     dhcp:
       hosts:
         dhcp-1.dorwinia.com:
-          primary: true
+          dhcp-primary: true
         dhcp-2.dorwinia.com:
-          primary: false
+          dhcp-primary: false
 
-    wireguard:
+    network:
       hosts:
-        wireguard-1.dorwinia.com:
-          primary: true
-        wireguard-2.dorwinia.com:
-          primary: false
+        tun-0.dorwinia.com:
+          wireguard-primary: true
+        tun-1.dorwinia.com:
+          wireguard-primary: false
+        tun-2.dorwinia.com:
+          wireguard-primary: false
+    
     
     gitlab_runners:
       hosts:
