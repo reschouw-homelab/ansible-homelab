@@ -33,7 +33,7 @@
     - wireguard
 
 - name: Upload wireguard-1 config file
-  when: primary
+  when: wireguard-primary
   notify: reload_wireguard
   template:
     src: wireguard-1-wg0.conf.j2
@@ -42,7 +42,7 @@
     - wireguard
 
 - name: Upload wireguard-2 config file
-  when: not primary
+  when: not wireguard-primary
   notify: reload_wireguard
   template:
     src: wireguard-2-wg0.conf.j2

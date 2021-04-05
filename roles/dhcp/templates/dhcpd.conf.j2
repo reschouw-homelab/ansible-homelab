@@ -11,7 +11,7 @@ log-facility local7;
 
 # High-availability settings
 failover peer "failover-partner" {
-{% if primary %}
+{% if dhcp-primary %}
 	primary;
 	address dhcp-1.dorwinia.com;
 	port 519;
