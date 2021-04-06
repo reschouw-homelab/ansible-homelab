@@ -34,10 +34,8 @@ all:
     network:
       hosts:
         tun-0.dorwinia.com:
-          wireguard_primary: true
         tun-1.dorwinia.com:
-          wireguard_primary: false
-    
+        tun-2.dorwinia.com:
     
     gitlab_runners:
       hosts:

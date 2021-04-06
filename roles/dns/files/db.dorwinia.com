@@ -50,6 +50,9 @@ ans-1.dorwinia.com.			IN	A	192.168.1.51
 ans-2.dorwinia.com.			IN	A	192.168.1.52
 
 wireguard-1.dorwinia.com.			IN	A	192.168.1.61
+tun-0.dorwinia.com.           IN  A 192.168.1.61
+tun-1.dorwinia.com.           IN  A 10.1.0.10
+tun-2.dorwinia.com.           IN  A 10.1.1.10
 
 gitlab.dorwinia.com.			IN	A	192.168.1.70
 git.dorwinia.com.			IN	A	192.168.1.70
