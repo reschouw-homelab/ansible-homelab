@@ -1,7 +1,4 @@
 - name: reload_wireguard
   systemd:
-    name: "wg-quick@wg{{ item }}"
+    name: wg-quick@wg0
     state: restarted
-  loop: "{{ tun_nums }}"
-  tags:
-    - wireguard
