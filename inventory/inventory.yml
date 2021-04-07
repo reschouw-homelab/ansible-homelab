@@ -34,8 +34,15 @@ all:
     network:
       hosts:
         tun-0.dorwinia.com:
+          tun_nums:
+            - 1
+            - 2
         tun-1.dorwinia.com:
+          tun_nums: 
+            - 1
         tun-2.dorwinia.com:
+          tun_nums: 
+            - 2
     
     gitlab_runners:
       hosts:

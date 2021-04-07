@@ -32,12 +32,21 @@
   tags:
     - wireguard
 
-- name: Upload tun-0 config file
+- name: Upload tun-0 wg1 config files
   when: inventory_hostname == "tun-0.dorwinia.com"
   notify: reload_wireguard
   template:
-    src: tun-0-wg0.conf.j2
-    dest: /etc/wireguard/wg0.conf
+    src: tun-0-wg1.conf.j2
+    dest: /etc/wireguard/wg1.conf
+  tags:
+    - wireguard
+
+- name: Upload tun-0 wg2 config files
+  when: inventory_hostname == "tun-0.dorwinia.com"
+  notify: reload_wireguard
+  template:
+    src: tun-0-wg2.conf.j2
+    dest: /etc/wireguard/wg2.conf
   tags:
     - wireguard
 
@@ -45,8 +54,8 @@
   when: inventory_hostname == "tun-1.dorwinia.com"
   notify: reload_wireguard
   template:
-    src: tun-1-wg0.conf.j2
-    dest: /etc/wireguard/wg0.conf
+    src: tun-1-wg1.conf.j2
+    dest: /etc/wireguard/wg1.conf
   tags:
     - wireguard
 
@@ -54,14 +63,15 @@
   when: inventory_hostname == "tun-2.dorwinia.com"
   notify: reload_wireguard
   template:
-    src: tun-2-wg0.conf.j2
-    dest: /etc/wireguard/wg0.conf
+    src: tun-2-wg2.conf.j2
+    dest: /etc/wireguard/wg2.conf
   tags:
     - wireguard
 
 - name: Activate links on boot
   systemd:
-    name: wg-quick@wg0
+    name: "wg-quick@wg{{ item }}"
     enabled: yes
+  loop: "{{ tun_nums }}"
   tags:
     - wireguard

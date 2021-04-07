@@ -1,16 +1,11 @@
 [Interface]
-Address = 10.222.0.1/24
+Address = 10.222.0.5/30
 ListenPort = 51820
 PrivateKey = {{ tun0_private }}
 PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -t nat -A POSTROUTING -o ens160 -j MASQUERADE
 PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -t nat -D POSTROUTING -o ens160 -j MASQUERADE
 
 [Peer]
-PublicKey = {{ tun1_public }}
-AllowedIPs = 10.222.0.0/24,10.1.0.0/16
-PersistentKeepalive = 25
-
-[Peer]
 PublicKey = {{ tun2_public }}
-AllowedIPs = 10.222.0.0/24,10.1.0.0/16
+AllowedIPs = 10.222.0.4/30,10.1.0.0/16
 PersistentKeepalive = 25
