@@ -7,10 +7,10 @@ PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -t nat -D POSTROUTING -
 
 [Peer]
 PublicKey = {{ tun1_public }}
-AllowedIPs = 10.222.0.0/24,10.1.0.0/16
+AllowedIPs = 10.222.0.2/32,10.1.0.0/16
 PersistentKeepalive = 25
 
 [Peer]
 PublicKey = {{ tun2_public }}
-AllowedIPs = 10.222.0.0/24,10.1.0.0/16
+AllowedIPs = 10.222.0.3/32,10.1.0.0/16
 PersistentKeepalive = 25

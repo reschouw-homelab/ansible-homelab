@@ -1,5 +1,5 @@
 [Interface]
-Address = 10.222.0.3/32
+Address = 10.222.0.3/24
 PrivateKey = {{ tun2_private }}
 PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -t nat -A POSTROUTING -o ens5 -j MASQUERADE
 PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -t nat -D POSTROUTING -o ens5 -j MASQUERADE
