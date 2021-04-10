@@ -27,9 +27,10 @@
   tags:
     - common_packages
 
-- name: Remove cloud-init Netplan File
-  file:
-    path: /etc/netplan/50-cloud-init.yaml
-    state: absent
-  tags:
-    - common_packages
+# As I move to AWS, the cloud-init file should stay in-place
+#- name: Remove cloud-init Netplan File
+#  file:
+#    path: /etc/netplan/50-cloud-init.yaml
+#    state: absent
+#  tags:
+#    - common_packages
