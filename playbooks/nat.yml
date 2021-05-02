@@ -1,0 +1,7 @@
+- name: Configure AWS NAT instance
+  hosts: nat.dorwinia.com
+  become: yes
+  become_user: root
+  roles:
+    - users
+    - nat

@@ -1,0 +1,13 @@
+---
+
+- name: Enable IP Forwarding
+  # Note: This handler should only run when ip forwarding config is put in /etc/sysctl but the appropriate task. 
+  #This may have unintended effects if other changes have been made to the /etc/sysctl.conf file.
+  shell: sysctl -p
+  tags:
+    - nat 
+
+- name: Enable NAT 
+  shell: iptables -t nat -A POSTROUTING -o ens5 -s 10.1.0.0/16 -j MASQUERADE
+  tags:
+    - nat 

@@ -13,35 +13,18 @@ all:
     mgmt:
       hosts:
         config.dorwinia.com:
-        graylog.dorwinia.com:
-
-    dns:
-      hosts:
-        dns-1.dorwinia.com:
-          ansible-host: 192.168.1.11
-        dns-2.dorwinia.com:
-          ansible-host: 192.168.1.12
-        dns-3.dorwinia.com:
-          ansible-host: 192.168.1.13
-
-    dhcp:
-      hosts:
-        dhcp-1.dorwinia.com:
-          dhcp_primary: true
-        dhcp-2.dorwinia.com:
-          dhcp_primary: false
 
     network:
-      hosts:
-        tun-0.dorwinia.com:
-        tun-1.dorwinia.com:
-        tun-2.dorwinia.com:
+      children:
+        wireguard:
+          hosts:
+            tun-0.dorwinia.com:
+            tun-1.dorwinia.com:
+            tun-2.dorwinia.com:
+        nat:
+          hosts:
+            nat.dorwinia.com:
     
-    gitlab_runners:
-      hosts:
-        gitlab-runner-1.dorwinia.com:
-        gitlab-runner-2.dorwinia.com:
-
     kubernetes:
       children:
         kube_controller:
