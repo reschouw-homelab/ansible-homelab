@@ -10,17 +10,6 @@
   tags:
     - nat
 
-#- name: Disable redirects on reboot
-#  lineinfile:
-#    path: /etc/sysctl.conf
-#    regex: '^#?#net.ipv4.conf.all.send_redirects = 0'
-#    line: net.ipv4.conf.all.send_redirects = 0
-#    state: present
-#  notify:
-#    - Enable IP Forwarding
-#  tags:
-#    - nat
-
 - name: Add iptables NAT rule to rc.local  
   lineinfile:
     path: /etc/rc.local
