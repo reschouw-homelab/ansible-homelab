@@ -30,12 +30,12 @@ all:
       children:
         kube_controller:
           hosts:
-            kube-controller-1.dorwinia.com:
+            kube-con-1.dorwinia.com:
         kube_worker:
           hosts:
-            kube-worker-1.dorwinia.com:
-            kube-worker-2.dorwinia.com:
-            kube-worker-3.dorwinia.com:
+            kube-wor-1.dorwinia.com:
+            kube-wor-2.dorwinia.com:
+            kube-wor-3.dorwinia.com:
 
     prod:
       hosts:
