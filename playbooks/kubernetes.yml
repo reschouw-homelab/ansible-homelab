@@ -7,17 +7,3 @@
     - docker
     - kubernetes
 
-#- name: Set Up Control Plane
-#  hosts: kube_controller
-#  become: yes
-#  become_user: root
-#  roles:
-#    - kube_controller
-#
-#
-#- name: Set Up Workers
-#  hosts: kube_worker
-#  become: yes
-#  become_user: root
-#  roles:
-#    - kube_worker

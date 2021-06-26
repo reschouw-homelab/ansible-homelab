@@ -18,7 +18,7 @@
 
 - name: Install Kubernetes Packages
   apt:
-    name: ['kubelet', 'kubeadm', 'kubectl']
+    name: ['kubelet=1.21.2-00', 'kubeadm=1.21.2-00', 'kubectl=1.21.2-00']
     update_cache: yes
     state: present
   tags:
@@ -39,17 +39,3 @@
     - kube_controller
     - kube_worker
 
-- name: Disable Swap
-  shell: |
-    swapoff -a
-  tags:
-    - kubernetes
-    - kube_controller
-    - kube_worker
-
-- name: Disable Swap in fstab to prevent re-enabling
-  replace:
-    path: /etc/fstab
-    regexp: '^([^#].*?\sswap\s+sw\s+.*)$'
-    replace: '# \1'
-  

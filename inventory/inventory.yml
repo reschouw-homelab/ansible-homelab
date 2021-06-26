@@ -33,9 +33,7 @@ all:
             kube-con-1.dorwinia.com:
         kube_worker:
           hosts:
-            kube-wor-1.dorwinia.com:
-            kube-wor-2.dorwinia.com:
-            kube-wor-3.dorwinia.com:
+            kube-wor-[1:3].dorwinia.com:
 
     prod:
       hosts:
