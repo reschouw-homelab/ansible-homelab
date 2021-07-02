@@ -5,5 +5,5 @@
   roles:
     - users
     - docker
-    - kubernetes
+    - k8s
 

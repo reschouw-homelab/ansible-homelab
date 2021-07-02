@@ -3,18 +3,14 @@
     url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
     state: present
   tags:
-    - kubernetes
-    - kube_controller
-    - kube_worker
+    - k8s
 
 - name: Install Kubernetes Repo
   apt_repository:
     repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
     state: present
   tags:
-    - kubernetes
-    - kube_controller
-    - kube_worker
+    - k8s
 
 - name: Install Kubernetes Packages
   apt:
@@ -22,9 +18,7 @@
     update_cache: yes
     state: present
   tags:
-    - kubernetes
-    - kube_controller
-    - kube_worker
+    - k8s
 
 - name: Prevent Unintended Upgrades to Kubernetes
   dpkg_selections:
@@ -35,7 +29,5 @@
     - kubeadm
     - kubectl
   tags:
-    - kubernetes
-    - kube_controller
-    - kube_worker
+    - k8s
 
