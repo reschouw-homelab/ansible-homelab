@@ -6,4 +6,5 @@
     - users
     - docker
     - k8s
+    - k8s-control
 

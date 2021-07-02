@@ -25,15 +25,16 @@ all:
         nat:
           hosts:
             nat.dorwinia.com:
-    
     kubernetes:
       children:
         kube_controller:
           hosts:
             kube-con-1.dorwinia.com:
-        kube_worker:
-          hosts:
-            kube-wor-[1:3].dorwinia.com:
+        # K8s worker nodes are managed by aws_spot_fleet
+        # No ansible required
+        #kube_worker:
+          #hosts:
+            #kube-wor-[1:3].dorwinia.com:
 
     prod:
       hosts:

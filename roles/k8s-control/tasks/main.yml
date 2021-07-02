@@ -1,0 +1,31 @@
+---
+- name: Init Cluster
+  shell:
+    cmd: kubeadm init --pod-network-cidr 10.111.0.0/16
+  register: kubeadm
+  tags:
+    - k8s-control
+
+- name: Get worker join key
+  set_fact:
+    join_key: "{{ kubeadm.stdout | regex_search('--token (.{23})', '\\1') }}"
+  tags:
+    - k8s-control
+
+- name: debug join key
+  debug:
+    var: join_key
+  tags:
+    - k8s-control
+
+- name: Get worker join hash
+  set_fact:
+    join_hash: "{{ kubeadm.stdout | regex_search('sha256:[a-z0-9]*') }}"
+  tags:
+    - k8s-control
+
+- name: debug join hash
+  debug:
+    var: join_hash
+  tags:
+    - k8s-control
