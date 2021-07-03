@@ -29,3 +29,12 @@
     var: join_hash
   tags:
     - k8s-control
+
+- name: Copy kubeconfig to dorwin
+  shell: |
+    mkdir -p /home/dorwin/.kube
+    sudo cp -i /etc/kubernetes/admin.conf /home/dorwin/.kube/config
+    sudo chown dorwin:dorwin /home/dorwin/.kube/config
+  tags:
+    - k8s-control
+
