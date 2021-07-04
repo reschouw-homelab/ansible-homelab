@@ -30,6 +30,14 @@
   tags:
     - k8s-control
 
+- name: Install AWS CLI
+  apt:
+    name: awscli
+    state: present
+    update_cache: yes
+  tags:
+    - k8s-control
+
 - name: Update join creds
   shell: aws secretsmanager put-secret-value --secret-id k8s-join-token --secret-string '{"token":"{{join_key}}"},{"hash":"{{join_hash}}"}'
   tags:
