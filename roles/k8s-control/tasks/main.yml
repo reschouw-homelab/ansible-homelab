@@ -8,7 +8,7 @@
 
 - name: Get worker join key
   set_fact:
-    join_key: "{{ kubeadm.stdout | regex_search('--token (.{23})', '\\1') | [0] }}"
+    join_key: "{{ kubeadm.stdout | regex_search('--token (.{23})', '\\1') }}"
   tags:
     - k8s-control
 
@@ -39,7 +39,7 @@
     - k8s-control
 
 - name: Update join creds
-  shell: aws secretsmanager put-secret-value --secret-id k8s-join-token --secret-string '{"token":"{{join_key}}"},{"hash":"{{join_hash}}"}'
+  shell: aws secretsmanager put-secret-value --secret-id k8s-join-token --secret-string '{"token":"{{join_key[0]}}"},{"hash":"{{join_hash}}"}'
   tags:
     - k8s-control
 
