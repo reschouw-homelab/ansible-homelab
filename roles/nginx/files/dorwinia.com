@@ -1,7 +1,5 @@
-upstream homepage {
-  server kube-worker-1.dorwinia.com:30001;
-  server kube-worker-2.dorwinia.com:30001;
-  server kube-worker-3.dorwinia.com:30001;
+upstream kube-workers {
+  server kube-workers.dorwinia.com:30001;
 }
 
 server {
@@ -10,7 +8,7 @@ server {
   
 
   location / {
-    proxy_pass http://homepage/;
+    proxy_pass http://kube-workers;
   }
 
   access_log /var/log/nginx/dorwinia.access;

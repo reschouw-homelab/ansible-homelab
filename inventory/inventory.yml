@@ -1,27 +1,14 @@
 all:
   vars:
-    location: Virtual
-    contact: ryan@dorwinia.com
     ansible_python_interpreter: /usr/bin/python3
   children:
 
-    test:
-      hosts:
-        module-test.dorwinia.com:
-        ans-1.dorwinia.com:
-        ans-2.dorwinia.com:
-  
     mgmt:
       hosts:
         config.dorwinia.com:
 
     network:
       children:
-        wireguard:
-          hosts:
-            tun-0.dorwinia.com:
-            tun-1.dorwinia.com:
-            tun-2.dorwinia.com:
         nat:
           hosts:
             nat.dorwinia.com:
@@ -36,8 +23,6 @@ all:
           #hosts:
             #kube-wor-[1:3].dorwinia.com:
 
-    prod:
+    lbs:
       hosts:
-        nginx.dorwinia.com:
-        git.dorwinia.com:
-        plex.dorwinia.com:
+        lb-1.dorwinia.com:

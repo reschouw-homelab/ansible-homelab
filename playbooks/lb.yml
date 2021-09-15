@@ -1,5 +1,5 @@
-- name: Install and configure nginx
-  hosts: nginx.dorwinia.com
+- name: Install and configure nginx load balancer
+  hosts: lbs
   become: yes
   become_user: root
   roles:

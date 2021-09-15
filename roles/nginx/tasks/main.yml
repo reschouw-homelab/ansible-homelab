@@ -10,20 +10,20 @@
     tags:
       - nginx
 
-  - name: Add repository
-    apt_repository:
-            repo: ppa:certbot/certbot
+  #- name: Add repository
+  #  apt_repository:
+  #          repo: ppa:certbot/certbot
 
-  - name: Install Certbot and plugins
-    apt:
-      name: 
-        - python3-certbot
-        - python3-certbot-nginx
-      state: present
-      update_cache: true
-      cache_valid_time: 3600
-    tags:
-      - nginx
+  #- name: Install Certbot and plugins
+  #  apt:
+  #    name: 
+  #      - python3-certbot
+  #      - python3-certbot-nginx
+  #    state: present
+  #    update_cache: true
+  #    cache_valid_time: 3600
+  #  tags:
+  #    - nginx
 
   - name: Copy site configuration files
     copy:
@@ -35,25 +35,23 @@
     loop:
       - src: dorwinia.com
         dest: /etc/nginx/sites-enabled/dorwinia.com
-      - src: gitlab.dorwinia.com
-        dest: /etc/nginx/sites-enabled/gitlab.dorwinia.com
     tags:
       - nginx
 
   # Certbot configuration
-  - name: Acquire/Update cert and ensure config is installed
-    shell:
-      cmd: certbot --nginx --non-interactive --redirect --agree-tos -m ryan@dorwinia.com -d dorwinia.com -d gitlab.dorwinia.com
-    tags: 
-      - nginx
+  #- name: Acquire/Update cert and ensure config is installed
+  #  shell:
+  #    cmd: certbot --nginx --non-interactive --redirect --agree-tos -m ryan@dorwinia.com -d dorwinia.com -d gitlab.dorwinia.com
+  #  tags: 
+  #    - nginx
 
-  - name: Install cron job
-    cron:
-      name: Certbot command
-      hour: "0"
-      job: certbot --nginx --non-interactive --redirect --agree-tos -m ryan@dorwinia.com -d dorwinia.com -d gitlab.dorwinia.com
-    tags:
-      - nginx
+  #- name: Install cron job
+  #  cron:
+  #    name: Certbot command
+  #    hour: "0"
+  #    job: certbot --nginx --non-interactive --redirect --agree-tos -m ryan@dorwinia.com -d dorwinia.com -d gitlab.dorwinia.com
+  #  tags:
+  #    - nginx
   
   # Restart nginx
   - name: Restart nginx service
