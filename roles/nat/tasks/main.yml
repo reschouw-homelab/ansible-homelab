@@ -13,7 +13,7 @@
 - name: Add iptables NAT rule to rc.local  
   lineinfile:
     path: /etc/rc.local
-    line: iptables -t nat -A POSTROUTING -o ens5 -s 10.1.0.0/16 -j MASQUERADE
+    line: iptables -t nat -A POSTROUTING -o ens5 -j MASQUERADE
     state: present
     create: yes
   notify:
