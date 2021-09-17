@@ -3,12 +3,15 @@ upstream kube-workers {
 }
 
 server {
+  # Use of the .53 address below appears to be something specific to AWS
+  resolver 127.0.0.53 valid=30s;
+  set $backend "http://kube-workers.dorwinia.com:30001";
+
   server_name dorwinia.com;
   listen 80;
-  
 
   location / {
-    proxy_pass http://kube-workers;
+    proxy_pass $backend;
   }
 
   access_log /var/log/nginx/dorwinia.access;
