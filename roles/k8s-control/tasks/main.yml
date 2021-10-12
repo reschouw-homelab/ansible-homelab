@@ -51,3 +51,12 @@
   tags:
     - k8s-control
 
+- name: Join token rotation cron
+  cron:
+    name: K8s join token rotation
+    minute: 0
+    hour: 0
+    job: aws secretsmanager put-secret-value --secret-id --secret-string '{"token":"$(kubadm token create)","hash":"{{join_hash}}"}'
+  tags:
+    - k8s-control
+    - k8s-test
