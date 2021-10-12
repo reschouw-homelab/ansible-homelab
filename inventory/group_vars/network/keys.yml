@@ -1,7 +1,0 @@
-tun0_private: "{{ (lookup('aws_secret', 'wireguard-keys') | from_json).tun0_private }}"
-tun0_public: "{{ (lookup('aws_secret', 'wireguard-keys') | from_json).tun0_public }}"
-tun1_private: "{{ (lookup('aws_secret', 'wireguard-keys') | from_json).tun1_private }}"
-tun1_public: "{{ (lookup('aws_secret', 'wireguard-keys') | from_json).tun1_public }}"
-tun2_private: "{{ (lookup('aws_secret', 'wireguard-keys') | from_json).tun2_private }}"
-tun2_public: "{{ (lookup('aws_secret', 'wireguard-keys') | from_json).tun2_public }}"
-

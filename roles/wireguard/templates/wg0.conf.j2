@@ -1,16 +1,30 @@
 [Interface]
 Address = 10.222.0.1/24
 ListenPort = 51820
-PrivateKey = {{ tun0_private }}
+PrivateKey = {{ server_private }}
 PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -t nat -A POSTROUTING -o ens160 -j MASQUERADE
 PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -t nat -D POSTROUTING -o ens160 -j MASQUERADE
 
 [Peer]
-PublicKey = {{ tun1_public }}
+# Pixel
+PublicKey = {{ pixel_private }}
 AllowedIPs = 10.222.0.2/32,10.1.0.0/16
 PersistentKeepalive = 25
 
 [Peer]
-PublicKey = {{ tun2_public }}
+# Desktop
+PublicKey = {{ desktop_public }}
 AllowedIPs = 10.222.0.3/32,10.1.0.0/16
+PersistentKeepalive = 25
+
+[Peer]
+# Thinkpad
+PublicKey = {{ thinkpad_public }}
+AllowedIPs = 10.222.0.4/32,10.1.0.0/16
+PersistentKeepalive = 25
+
+[Peer]
+# MacBook
+PublicKey = {{ macbook_public }}
+AllowedIPs = 10.222.0.5/32,10.1.0.0/16
 PersistentKeepalive = 25

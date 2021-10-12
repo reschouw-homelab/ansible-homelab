@@ -1,0 +1,6 @@
+server_private: "{{ (lookup('aws_secret', 'wireguard-keys') | from_json).server_private }}"
+server_public: "{{ (lookup('aws_secret', 'wireguard-keys') | from_json).server_public }}"
+pixel_public: "{{ (lookup('aws_secret', 'wireguard-keys') | from_json).pixel_public }}"
+desktop_public: "{{ (lookup('aws_secret', 'wireguard-keys') | from_json).desktop_public }}"
+thinkpad_public: "{{ (lookup('aws_secret', 'wireguard-keys') | from_json).thinkpad_public }}"
+macbook_public: "{{ (lookup('aws_secret', 'wireguard-keys') | from_json).macbook_public }}"
