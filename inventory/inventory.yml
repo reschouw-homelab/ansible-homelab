@@ -12,6 +12,10 @@ all:
         nat:
           hosts:
             nat.dorwinia.com:
+        wireguard:
+          hosts:
+            wireguard.dorwinia.com:
+
     kubernetes:
       children:
         kube_controller:

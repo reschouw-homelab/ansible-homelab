@@ -3,7 +3,7 @@
 
 - name: Install and setup Wireguard Site-to-Site VPN
   gather_facts: no
-  hosts: network
+  hosts: wireguard
   become: yes
   become_user: root
   roles:
