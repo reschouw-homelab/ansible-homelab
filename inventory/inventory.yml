@@ -15,6 +15,9 @@ all:
         wireguard:
           hosts:
             wireguard.dorwinia.com:
+        unifi:
+          hosts:
+            unifi.dorwinia.com:
 
     kubernetes:
       children:

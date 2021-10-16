@@ -1,0 +1,8 @@
+- name: Install and setup unifi controller
+  gather_facts: yes
+  hosts: unifi
+  become: yes
+  become_user: root
+  roles:
+    - users
+    - unifi

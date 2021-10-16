@@ -1,0 +1,6 @@
+- name: restart_unifi
+  systemd:
+    name: unifi
+    state: restarted
+  tags:
+    - always

@@ -1,0 +1,39 @@
+---
+
+- name: Install openjdk8
+  apt:
+    name: openjdk-8-jdk
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+  tags:
+    - unifi
+
+- name: Collect list of services
+  service_facts:
+  tags:
+    - unifi
+
+- name: Download Unifi package if needed 
+  when: "'unifi' not in services"
+  get_url:
+    url: https://fw-download.ubnt.com/data/unifi-controller/1c14-debian-6.4.54-0bb324db149c4793bd93c23d0f9be683.deb
+    dest: /root/unifi.deb
+  notify: restart_unifi
+  tags:
+    - unifi
+
+- name: Install Unifi package if needed
+  when: "'unifi' not in services"
+  apt:
+    deb: /root/unifi.deb
+  notify: restart_unifi
+  tags:
+    - unifi
+
+- name: Fix dependencies
+  apt:
+    state: fixed
+  notify: restart_unifi
+  tags:
+    - unifi
