@@ -1,13 +1,25 @@
-- name: restart_bind
-  systemd:
-    name: named
-    state: restarted
+- name: Test bind config
+  command:
+    cmd: named-checkconf /etc/bind/named.conf
+  changed_when: false
+  listen: 
+    - restart_bind
+    - reload_bind
   tags:
     - always
 
-- name: reload_bind
+- name: Reload bind
   systemd:
-    name: named
+    name: "{{ 'bind9' if ansible_distribution_version == '16.04' else 'named' }}"
     state: reloaded
+  listen: reload_bind
+  tags:
+    - always
+
+- name: Restart bind
+  systemd:
+    name: "{{ 'bind9' if ansible_distribution_version == '16.04' else 'named' }}"
+    state: restarted
+  listen: restart_bind
   tags:
     - always

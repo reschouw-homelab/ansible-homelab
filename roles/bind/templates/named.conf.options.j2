@@ -1,0 +1,22 @@
+acl "trusted" {
+  10.0.0.0/8;      # RFC1918
+  172.16.0.0/12;   # RFC1918
+  192.168.0.0/16;  # RFC1918
+  #fc00::/8;        # Private IPv6 network
+  #2606:E080::/32;  # Edovo IPv6 Network
+};
+
+options {
+  directory "/var/cache/bind";
+
+  recursion yes;
+  allow-recursion {"trusted";};
+
+  forwarders {
+		10.1.0.2;
+	};
+
+  auth-nxdomain no;
+  listen-on { any; };
+  #listen-on-v6 { any; };
+};
