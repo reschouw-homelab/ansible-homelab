@@ -1,0 +1,8 @@
+- name: Install and setup bind forwarder
+  gather_facts: yes
+  hosts: bind
+  become: yes
+  become_user: root
+  roles:
+    - users
+    - bind

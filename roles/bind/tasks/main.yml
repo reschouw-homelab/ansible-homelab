@@ -1,0 +1,18 @@
+---
+
+- name: Install bind
+  apt:
+    name: bind
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+  tags:
+    - bind
+
+- name: Upload config file
+  notify: reload_bind
+  template:
+    src: named.conf.options.j2
+    dest: /etc/bind/named.conf.options
+  tags:
+    - bind

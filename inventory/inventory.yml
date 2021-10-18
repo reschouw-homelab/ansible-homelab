@@ -18,6 +18,9 @@ all:
         unifi:
           hosts:
             unifi.dorwinia.com:
+        bind:
+          hosts:
+            bind.dorwinia.com:
 
     kubernetes:
       children:

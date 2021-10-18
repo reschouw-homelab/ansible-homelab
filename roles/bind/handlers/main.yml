@@ -1,0 +1,13 @@
+- name: restart_bind
+  systemd:
+    name: named
+    state: restarted
+  tags:
+    - always
+
+- name: reload_bind
+  systemd:
+    name: named
+    state: reloaded
+  tags:
+    - always
