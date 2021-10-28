@@ -10,12 +10,11 @@
   tags:
     - nat
 
-- name: Add iptables NAT rule to rc.local  
-  lineinfile:
-    path: /etc/rc.local
-    line: iptables -t nat -A POSTROUTING -o ens5 -j MASQUERADE
-    state: present
-    create: yes
+- name: Ensure iptables rule is persistent on reboot
+  cron:
+    name: Ensure iptables rule is persistent on reboot
+    job: "sleep 10 && /usr/sbin/iptables -t nat -A POSTROUTING -o {{ansible_default_ipv4.interface}} -j MASQUERADE"
+    special_time: reboot
   notify:
     - Enable NAT
   tags:
