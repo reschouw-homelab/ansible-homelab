@@ -1,6 +1,6 @@
 all:
   vars:
-    ansible_python_interpreter: /usr/bin/python3
+    #ansible_python_interpreter: /usr/bin/python3
   children:
 
     mgmt:
@@ -21,6 +21,9 @@ all:
         bind:
           hosts:
             bind.dorwinia.com:
+        netbox:
+          hosts:
+            netbox.dorwinia.com:
 
     kubernetes:
       children:

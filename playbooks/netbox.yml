@@ -1,0 +1,9 @@
+- name: Configure Bind, NAT, Wireguard
+  hosts: netbox.dorwinia.com
+  become: yes
+  become_user: root
+  roles:
+    - users
+    - nat
+    - wireguard
+    - bind
