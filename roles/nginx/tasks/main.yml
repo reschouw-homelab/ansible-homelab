@@ -35,6 +35,8 @@
     loop:
       - src: dorwinia.com
         dest: /etc/nginx/sites-enabled/dorwinia.com
+      - src: files.dorwinia.com
+        dest: /etc/nginx/sites-enabled/files.dorwinia.com
     tags:
       - nginx
 
