@@ -3,7 +3,7 @@
   lineinfile:
     path: /etc/sysctl.conf
     regex: '^#?net.ipv4.ip_forward=1'
-    line: net.ipv4.ip_forward = 1
+    line: net.ipv4.ip_forward=1
     state: present
   notify:
     - Enable IP Forwarding
