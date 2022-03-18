@@ -9,32 +9,12 @@ all:
 
     network:
       children:
-        nat:
-          hosts:
-            nat.dorwinia.com:
-        wireguard:
-          hosts:
-            wireguard.dorwinia.com:
         unifi:
           hosts:
             unifi.dorwinia.com:
-        bind:
-          hosts:
-            bind.dorwinia.com:
         netbox:
           hosts:
             netbox.dorwinia.com:
-
-    kubernetes:
-      children:
-        kube_controller:
-          hosts:
-            kube-con-1.dorwinia.com:
-        # K8s worker nodes are managed by aws_spot_fleet
-        # No ansible required
-        #kube_worker:
-          #hosts:
-            #kube-wor-[1:3].dorwinia.com:
 
     lbs:
       hosts:
