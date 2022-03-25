@@ -3,9 +3,15 @@ upstream nextcloud {
 }
 
 server {
+  listen 80;
+  server_name files.dorwinia.com;
+  return 301 https://$host$request_uri;
+}
+
+server {
 
   server_name files.dorwinia.com;
-  listen 80;
+  listen 443;
 
 	# Set proxy options to not confuse Nextcloud
 	proxy_set_header Host $host;
