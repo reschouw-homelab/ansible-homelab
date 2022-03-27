@@ -1,62 +1,71 @@
 # Role to install and configure nginx
 ---
-  # Install nginx
-  - name: Install nginx
-    apt:
-      name: nginx
-      state: present
-      update_cache: true
-      cache_valid_time: 3600
-    tags:
-      - nginx
+# Install nginx
+- name: Install nginx
+  apt:
+    name: nginx
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
+  tags:
+    - nginx
 
-  #- name: Add repository
-  #  apt_repository:
-  #          repo: ppa:certbot/certbot
+- name: Install Certbot
+  snap:
+    name: certbot
+    state: present
+    classic: yes
+  tags:
+    - nginx
 
-  #- name: Install Certbot and plugins
-  #  apt:
-  #    name: 
-  #      - python3-certbot
-  #      - python3-certbot-nginx
-  #    state: present
-  #    update_cache: true
-  #    cache_valid_time: 3600
-  #  tags:
-  #    - nginx
+- name: Copy site configuration files
+  copy:
+    src: "{{item.src}}"
+    dest: "{{item.dest}}"
+    owner: root
+    group: root
+    mode: 0600
+  loop:
+    - src: dorwinia.com
+      dest: /etc/nginx/sites-enabled/dorwinia.com
+    - src: files.dorwinia.com
+      dest: /etc/nginx/sites-enabled/files.dorwinia.com
+    - src: nginx.conf
+      dest: /etc/nginx/nginx.conf
+  tags:
+    - nginx
 
-  - name: Copy site configuration files
-    copy:
-      src: "{{item.src}}"
-      dest: "{{item.dest}}"
-      owner: root
-      group: root
-      mode: 0600
-    loop:
-      - src: dorwinia.com
-        dest: /etc/nginx/sites-enabled/dorwinia.com
-    tags:
-      - nginx
+- name: Determine if cert needs renewal
+  cmd: certbot certificates
+  register: certs
+  tags:
+    - nginx
+    - certbot
 
-  # Certbot configuration
-  #- name: Acquire/Update cert and ensure config is installed
-  #  shell:
-  #    cmd: certbot --nginx --non-interactive --redirect --agree-tos -m ryan@dorwinia.com -d dorwinia.com -d gitlab.dorwinia.com
-  #  tags: 
-  #    - nginx
+- name: Acquire/Update cert
+  shell:
+    cmd: certbot certonly --nginx --non-interactive --agree-tos -m ryan@dorwinia.com -d files.dorwinia.com
+  tags: 
+    - nginx
+    - certbot
 
-  #- name: Install cron job
-  #  cron:
-  #    name: Certbot command
-  #    hour: "0"
-  #    job: certbot --nginx --non-interactive --redirect --agree-tos -m ryan@dorwinia.com -d dorwinia.com -d gitlab.dorwinia.com
-  #  tags:
-  #    - nginx
-  
-  # Restart nginx
-  - name: Restart nginx service
-    service:
-      name: nginx
-      state: restarted
-    tags:
-      - nginx
+
+- name: Install cron job
+  cron:
+    name: Certbot command
+    hour: "0"
+    job: certbot certonly --nginx --non-interactive --agree-tos -m ryan@dorwinia.com -d files.dorwinia.com && sudo systemctl reload nginx.service
+  tags:
+    - nginx
+    - certbot
+
+
+# Restart nginx
+- name: Restart nginx service
+  service:
+    name: nginx
+    state: restarted
+  tags:
+    - nginx
+    - certbot
+
