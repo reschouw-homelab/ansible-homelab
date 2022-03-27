@@ -35,16 +35,24 @@
   tags:
     - nginx
 
-- name: Determine if cert needs renewal
-  cmd: certbot certificates
-  register: certs
+- name: Upload homepage content
+  copy:
+    src: "{{item.src}}"
+    dest: "{{item.dest}}"
+  loop:
+    - src: index.html
+      dest: /var/www/index.html
+    - src: resume.pdf
+      dest: /var/www/resume.pdf
   tags:
     - nginx
-    - certbot
 
-- name: Acquire/Update cert
+- name: Acquire/Update certs
   shell:
-    cmd: certbot certonly --nginx --non-interactive --agree-tos -m ryan@dorwinia.com -d files.dorwinia.com
+    cmd: "{{item}}"
+  loop: 
+    - certbot certonly --nginx --non-interactive --agree-tos -m ryan@dorwinia.com -d dorwinia.com
+    - certbot certonly --nginx --non-interactive --agree-tos -m ryan@dorwinia.com -d files.dorwinia.com
   tags: 
     - nginx
     - certbot
@@ -53,8 +61,13 @@
 - name: Install cron job
   cron:
     name: Certbot command
-    hour: "0"
-    job: certbot certonly --nginx --non-interactive --agree-tos -m ryan@dorwinia.com -d files.dorwinia.com && sudo systemctl reload nginx.service
+    hour: "{{item.hour}}"
+    job: "{{item.job}}"
+  loop:
+    - job: certbot certonly --nginx --non-interactive --agree-tos -m ryan@dorwinia.com -d files.dorwinia.com && sudo systemctl reload nginx.service
+      hour: 0
+    - job: certbot certonly --nginx --non-interactive --agree-tos -m ryan@dorwinia.com -d dorwinia.com  && sudo systemctl reload nginx.service
+      hour: 1
   tags:
     - nginx
     - certbot
