@@ -11,7 +11,10 @@ server {
 server {
 
   server_name files.dorwinia.com;
-  listen 443;
+  listen 443 ssl;
+
+  ssl_certificate /etc/letsencrypt/live/files.dorwinia.com/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/files.dorwinia.com/privkey.pem;
 
 	# Set proxy options to not confuse Nextcloud
 	proxy_set_header Host $host;

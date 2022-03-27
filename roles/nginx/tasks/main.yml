@@ -17,14 +17,6 @@
     classic: yes
   tags:
     - nginx
-    - test
-
-      #- name: Install Certbot
-      #  command:
-      #    cmd: sudo snap install --classic certbot
-      #  tags:
-      #    - nginx
-      #    - test
 
 - name: Copy site configuration files
   copy:
@@ -43,20 +35,30 @@
   tags:
     - nginx
 
-# Certbot configuration
-- name: Acquire/Update cert and ensure config is installed
+- name: Determine if cert needs renewal
+  cmd: certbot certificates
+  register: certs
+  tags:
+    - nginx
+    - certbot
+
+- name: Acquire/Update cert
   shell:
     cmd: certbot certonly --nginx --non-interactive --agree-tos -m ryan@dorwinia.com -d files.dorwinia.com
   tags: 
     - nginx
+    - certbot
+
 
 - name: Install cron job
   cron:
     name: Certbot command
     hour: "0"
-    job: certbot --nginx --non-interactive --redirect --agree-tos -m ryan@dorwinia.com -d files.dorwinia.com && sudo systemctl reload nginx.service
+    job: certbot certonly --nginx --non-interactive --agree-tos -m ryan@dorwinia.com -d files.dorwinia.com && sudo systemctl reload nginx.service
   tags:
     - nginx
+    - certbot
+
 
 # Restart nginx
 - name: Restart nginx service
@@ -65,3 +67,5 @@
     state: restarted
   tags:
     - nginx
+    - certbot
+
