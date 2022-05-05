@@ -16,6 +16,9 @@ server {
   ssl_certificate /etc/letsencrypt/live/files.dorwinia.com/fullchain.pem;
   ssl_certificate_key /etc/letsencrypt/live/files.dorwinia.com/privkey.pem;
 
+  # Increase default file size of 1 mb
+  client_max_body_size 128M;
+
 	# Set proxy options to not confuse Nextcloud
 	proxy_set_header Host $host;
   proxy_set_header X-Forwarded-Proto $scheme;
