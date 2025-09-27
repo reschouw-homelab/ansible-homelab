@@ -1,0 +1,7 @@
+- name: kube
+  hosts: kube
+  become: yes
+  become_user: root
+  roles:
+    - users
+    - common_packages
