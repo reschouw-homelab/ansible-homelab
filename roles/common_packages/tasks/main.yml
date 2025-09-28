@@ -23,6 +23,6 @@
     name: ipmitool
     state: present
     update_cache: no
-  when: kube in group_names
+  when: "'kube' in group_names"
   tags:
     - common_packages
