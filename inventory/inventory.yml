@@ -31,7 +31,7 @@ all:
           hosts:
             kube-1.dorwinia.com:
               ansible_host: 192.168.1.100
-            # kube-2.dorwinia.com:
-            #   ansible_host: 192.168.1.101
-            # kube-3.dorwinia.com:
-            #   ansible_host: 192.168.1.102
+            kube-2.dorwinia.com:
+              ansible_host: 192.168.1.101
+            kube-3.dorwinia.com:
+              ansible_host: 192.168.1.102

@@ -9,15 +9,9 @@
   tags:
     - users
 
-- debug:
-    msg: "Creating user dorwin with {{ dorwin_password }}"
-  tags:
-    - users
-    
 - name: add dorwin user
   ansible.builtin.user:
     name: dorwin
-    password: '{{ dorwin_password }}'
     groups: sudo
     shell: /bin/bash
     append: yes

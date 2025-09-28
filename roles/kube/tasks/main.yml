@@ -3,3 +3,5 @@
     name: "kubectl={{ kubernetes_version }}"
     state: present
     update_cache: yes
+  tags:
+    - kube

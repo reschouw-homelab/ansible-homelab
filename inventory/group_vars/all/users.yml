@@ -1,1 +1,0 @@
-dorwin_password: lookup('amazon.aws.aws_secret', 'dorwin_password', region='us-west-2')
