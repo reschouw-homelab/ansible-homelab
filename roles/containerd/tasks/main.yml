@@ -25,6 +25,16 @@
   tags: 
     - containerd
 
+- name: Upload containerd config file
+  ansible.builtin.copy:
+    src: config.toml
+    dest: /etc/containerd/config.toml
+    mode: '0644'
+  register: containerd_config
+  when: not ansible_check_mode
+  tags: 
+    - containerd
+
 - name: Reload systemd
   ansible.builtin.systemd:
     daemon_reload: yes
@@ -37,6 +47,14 @@
     name: containerd
     enabled: yes
     state: started
+  tags: 
+    - containerd
+
+- name: Restart containerd
+  ansible.builtin.systemd:
+    name: containerd
+    state: restarted
+  when: containerd_config.changed
   tags: 
     - containerd
 
