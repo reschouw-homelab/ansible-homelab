@@ -1,7 +1,54 @@
-- name: Install kubectl
+- name: Install prerequisite Packages
   ansible.builtin.apt:
-    name: "kubectl={{ kubernetes_version }}"
-    state: present
+    name: ['apt-transport-https', 'ca-certificates', 'curl', 'gnupg']
     update_cache: yes
+    state: present
+  tags:
+    - kube
+
+- name: Install Google GPG Key
+  ansible.builtin.apt_key:
+    url: "https://pkgs.k8s.io/core:/stable:/v{{ kubernetes_version }}/deb/Release.key"
+    state: present
+  tags:
+    - kube
+
+- name: Install Kubernetes Repo
+  ansible.builtin.apt_repository:
+    repo: "deb https://pkgs.k8s.io/core:/stable:/v{{ kubernetes_version }}/deb/ /"
+    state: present
+  tags:
+    - kube
+
+- name: Install Kubernetes Packages
+  ansible.builtin.apt:
+    name: ['kubeadm', 'kubectl', 'kubelet']
+    update_cache: yes
+    state: present
+  tags:
+    - kube
+
+- name: Kubernetes Prereq - Disable Swap Immediately
+  ansible.builtin.command: swapoff -a
+  when: ansible_swaptotal_mb > 0
+  tags:
+    - kube
+
+- name: Kubernetes Prereq - Disable Swap Permanently
+  ansible.builtin.replace:
+    path: /etc/fstab
+    regexp: '^(\s*)([^#\n]+\s+)(\w+\s+)swap(\s+.*)$'
+    replace: '#\1\2\3swap\4'
+    backup: yes
+  tags:
+    - kube
+
+- name: Ensure net.ipv4.ip_forward is set to 1
+  ansible.posix.sysctl:
+    name: net.ipv4.ip_forward
+    value: '1'
+    sysctl_set: yes
+    state: present
+    reload: yes
   tags:
     - kube
