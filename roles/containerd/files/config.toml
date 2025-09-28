@@ -2,7 +2,7 @@ version = 3
 root = '/var/lib/containerd'
 state = '/run/containerd'
 temp = ''
-disabled_plugins = ['io.containerd.grpc.v1.cri']
+disabled_plugins = []
 required_plugins = []
 oom_score = 0
 imports = []
@@ -105,6 +105,7 @@ imports = []
             NoNewKeyring = false
             Root = ''
             ShimCgroup = ''
+            SystemdCgroup = true
 
     [plugins.'io.containerd.cri.v1.runtime'.cni]
       bin_dir = ''
@@ -125,6 +126,17 @@ imports = []
     mutation_threshold = 100
     schedule_delay = '0s'
     startup_delay = '100ms'
+
+  [plugins.'io.containerd.grpc.v1.cri']
+    disable_tcp_service = true
+    stream_server_address = '127.0.0.1'
+    stream_server_port = '0'
+    stream_idle_timeout = '4h0m0s'
+    enable_tls_streaming = false
+
+    [plugins.'io.containerd.grpc.v1.cri'.x509_key_pair_streaming]
+      tls_cert_file = ''
+      tls_key_file = ''
 
   [plugins.'io.containerd.image-verifier.v1.bindir']
     bin_dir = '/opt/containerd/image-verifier/bin'
