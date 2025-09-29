@@ -3,16 +3,15 @@
 
 # Initial user setup
 - name: ensure sudo group exists
-  group:
+  ansible.builtin.group:
     name: sudo
     state: present
   tags:
     - users
 
 - name: add dorwin user
-  user:
+  ansible.builtin.user:
     name: dorwin
-    password: '{{ dorwin_password }}'
     groups: sudo
     shell: /bin/bash
     append: yes
@@ -22,7 +21,7 @@
 
 # Copy user config files
 - name: Copy dorwin's config files
-  copy:
+  ansible.builtin.copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
     owner: dorwin
@@ -38,20 +37,30 @@
     - users
 
 - name: Add dorwin's config key
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /home/dorwin/.ssh/authorized_keys
     state: present
     create: yes
     owner: dorwin
     group: dorwin
-    mode: '0664'
+    mode: '0600'
     line: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDG2sT48LuSCkKg+tEGMpvJzQJM/fNPXgo7TRqsq+4Mf7y9tR2JrYtdN2d2MUIHUak1tvrIZ7UFU5BbSiYq5D2XF2YEDD9P6Dd4JxL1dn23FLr0gEc9OnZtR4z1ClY3rqwgMA/ZCfo92SuwrUJ0DFwokj6qfEXn2eQTlgKTR9qTuq6wkP/MMFe/eU6/OINIioHRDLhC1958CbysiKlenpY8BOuG3NXToGSiiCutMudJsZSTlGp4oA2TMLnE/XGhGCWuvg6mfkNfxGHvRkzff2PVHnCsJeystBL8ZCf05Xg4DADih0xXBDEYc4HKpF4Fr95zoS41QSNa8pdXKEYpNBcH dorwin@config.dorwinia.com'
+  tags:
+    - users
+
+- name: create 99-ansible-users
+  ansible.builtin.template:
+    src: 99-ansible-users.j2
+    dest: /etc/sudoers.d/99-ansible-users
+    owner: root
+    group: root
+    mode: 0440
   tags:
     - users
 
 # Remove users
 - name: Remove disabled users
-  user:
+  ansible.builtin.user:
     name: "{{ item }}"
     state: absent
     remove: true

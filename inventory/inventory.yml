@@ -3,19 +3,35 @@ all:
     #ansible_python_interpreter: /usr/bin/python3
   children:
 
-    mgmt:
-      hosts:
-        config.dorwinia.com:
-
-    network:
+    aws:
       children:
-        unifi:
+        mgmt:
           hosts:
-            unifi.dorwinia.com:
-        netbox:
-          hosts:
-            netbox.dorwinia.com:
+            config.dorwinia.com:
 
-    lbs:
-      hosts:
-        lb-1.dorwinia.com:
+        network:
+          children:
+            unifi:
+              hosts:
+                unifi.dorwinia.com:
+            netbox:
+              hosts:
+                netbox.dorwinia.com:
+
+        lbs:
+          hosts:
+            lb-1.dorwinia.com:
+    
+    local:
+      vars:
+        ansible_user: dorwin
+        ansible_ssh_private_key_file: ~/.ssh/dorwin.pri
+      children:
+        kube:
+          hosts:
+            kube-1.dorwinia.com:
+              ansible_host: 192.168.1.100
+            kube-2.dorwinia.com:
+              ansible_host: 192.168.1.101
+            kube-3.dorwinia.com:
+              ansible_host: 192.168.1.102

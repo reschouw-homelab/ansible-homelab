@@ -1,29 +1,20 @@
 - name: Install Docker GPG Key
-  apt_key:
-    url: https://download.docker.com/linux/ubuntu/gpg
+  ansible.builtin.apt_key:
+    url: https://download.docker.com/linux/debian/gpg
     state: present
   tags:
-    - gitlab_runner
-    - kubernetes
-    - kube_controller
-    - kube_worker
+    - docker
 
 - name: Install Docker Repo
-  apt_repository:
-    repo: deb [arch=arm64] https://download.docker.com/linux/ubuntu bionic stable
+  ansible.builtin.apt_repository:
+    repo: "deb [arch=amd64] https://download.docker.com/linux/debian trixie stable"
     state: present
   tags:
-    - gitlab_runner
-    - kubernetes
-    - kube_controller
-    - kube_worker
+    - docker
 
 - name: Install Docker
-  apt:
+  ansible.builtin.apt:
     name: ['docker-ce', 'docker-ce-cli', 'containerd.io']
     update_cache: yes
   tags:
-    - gitlab_runner
-    - kubernetes
-    - kube_controller
-    - kube_worker
+    - docker

@@ -2,9 +2,7 @@ PYTHON := $(shell which python3)
 ENV := $(CURDIR)/env
 PIP := $(ENV)/bin/pip
 
-help:
-	@printf "\033[0;32mWelcome the the Dorwinia ansible repo!\n"
-	@printf "\033[0;32mmake env, source env/bin/activate, make deps\n"
+all: env deps
 
 env:
 	$(PYTHON) -m venv env

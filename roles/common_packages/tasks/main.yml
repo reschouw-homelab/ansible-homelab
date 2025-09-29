@@ -8,29 +8,21 @@
   loop:
     - tree
     - vim
-    - sl
     - nmap
     - tmux
     - htop
     - curl
-    - wget
     - unzip
     - traceroute
-    - rsync
+    - git
   tags:
     - common_packages
 
-- name: Remove cloud-init
+- name: Install ipmitool if needed
   apt:
-    name: cloud-init
-    state: absent
+    name: ipmitool
+    state: present
+    update_cache: no
+  when: "'local' in group_names"
   tags:
     - common_packages
-
-# As I move to AWS, the cloud-init file should stay in-place
-#- name: Remove cloud-init Netplan File
-#  file:
-#    path: /etc/netplan/50-cloud-init.yaml
-#    state: absent
-#  tags:
-#    - common_packages

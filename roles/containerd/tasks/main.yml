@@ -1,0 +1,86 @@
+- name: Download containerd
+  ansible.builtin.get_url:
+    url: "https://github.com/containerd/containerd/releases/download/v{{ containerd_version }}/containerd-{{ containerd_version }}-linux-amd64.tar.gz"
+    dest: /root/containerd-{{ containerd_version }}-linux-amd64.tar.gz
+    checksum: "sha256:316d510a0428276d931023f72c09fdff1a6ba81d6cc36f31805fea6a3c88f515"
+    mode: '0644'
+  tags: 
+    - containerd
+
+- name: Extract containerd
+  ansible.builtin.unarchive:
+    src: /root/containerd-{{ containerd_version }}-linux-amd64.tar.gz
+    dest: /usr/local
+    remote_src: yes
+    creates: /usr/local/bin/containerd
+  tags: 
+    - containerd
+
+- name: Create containerd service file
+  ansible.builtin.copy:
+    src: containerd.service
+    dest: /usr/lib/systemd/system/containerd.service
+    mode: '0644'
+  register: containerd_service
+  tags: 
+    - containerd
+
+- name: Upload containerd config file
+  ansible.builtin.copy:
+    src: config.toml
+    dest: /etc/containerd/config.toml
+    mode: '0644'
+  register: containerd_config
+  when: not ansible_check_mode
+  tags: 
+    - containerd
+
+- name: Reload systemd
+  ansible.builtin.systemd:
+    daemon_reload: yes
+  when: containerd_service.changed
+  tags: 
+    - containerd
+
+- name: Enable and start containerd
+  ansible.builtin.systemd:
+    name: containerd
+    enabled: yes
+    state: started
+  tags: 
+    - containerd
+
+- name: Restart containerd
+  ansible.builtin.systemd:
+    name: containerd
+    state: restarted
+  when: containerd_config.changed
+  tags: 
+    - containerd
+
+- name: Download runc
+  ansible.builtin.get_url:
+    url: "https://github.com/opencontainers/runc/releases/download/v{{ runc_version }}/runc.amd64"
+    dest: /usr/local/sbin/runc
+    checksum: "sha256:53bfce31ca047e537e0767b21c9d529d4b5b3e1cb9c590ca81654f9a5615d80d"
+    mode: '0755'
+  tags: 
+    - containerd
+
+- name: Download CNI plugins
+  ansible.builtin.get_url:
+    url: "https://github.com/containernetworking/plugins/releases/download/v{{ cni_plugins_version }}/cni-plugins-linux-amd64-v{{ cni_plugins_version }}.tgz"
+    dest: /root/cni-plugins-linux-amd64-v{{ cni_plugins_version }}.tgz
+    checksum: "sha256:ab3bda535f9d90766cccc90d3dddb5482003dd744d7f22bcf98186bf8eea8be6"
+    mode: '0644'
+  tags: 
+    - containerd
+
+- name: Extract CNI plugins
+  ansible.builtin.unarchive:
+    src: /root/cni-plugins-linux-amd64-v{{ cni_plugins_version }}.tgz
+    dest: /opt/cni/bin
+    remote_src: yes
+    creates: /opt/cni/bin/bridge
+  tags: 
+    - containerd
